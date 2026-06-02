@@ -1,0 +1,13 @@
+---
+deployment:
+  tasks:
+    # Copy the deployable site files into the web root on every deploy.
+    # NOTE: _parked.html and repo metadata are intentionally NOT copied,
+    # so they never end up publicly served at makevent.fi.
+    - export DEPLOYPATH=$HOME/public_html
+    - /bin/cp -f index.html "$DEPLOYPATH/"
+    - /bin/cp -f favicon.png "$DEPLOYPATH/"
+    - /bin/cp -f apple-touch-icon.png "$DEPLOYPATH/"
+    - /bin/cp -f Logo.png "$DEPLOYPATH/"
+    - /bin/cp -f logo-footer.png "$DEPLOYPATH/"
+    - /bin/cp -f phones-group.png "$DEPLOYPATH/"

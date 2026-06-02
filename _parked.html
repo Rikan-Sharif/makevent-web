@@ -1,0 +1,61 @@
+<!--
+  ============================================================
+  PARKED COMPONENTS — removed from index.html for the basic v1,
+  to be added back later. This file is NOT part of the site and
+  must NOT be uploaded to public_html.
+
+  Master reference (full original designer page):
+  /Users/rex/Downloads/makenettisivu.html
+  ============================================================
+-->
+
+
+<!-- ① HEADER · "Käyttäjälle" dropdown
+     Lived in <header>, inside the left group right after the logo <a>. -->
+<div class="relative inline-block text-left pt-1">
+    <button class="text-gray-400 text-sm font-medium hover:text-white flex items-center space-x-1 transition">
+        <span>Käyttäjälle</span>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+    </button>
+</div>
+
+
+<!-- ② HEADER · primary nav (Koti / Meistä / Hinnasto / Ota yhteyttä)
+     Lived in <header>, between the left logo group and the CTA button. -->
+<nav class="hidden md:flex space-x-10 text-sm font-semibold text-gray-400">
+    <a href="#" class="text-white border-b-2 border-white pb-1">Koti</a>
+    <a href="#" class="hover:text-white transition">Meistä</a>
+    <a href="#" class="hover:text-white transition">Hinnasto</a>
+    <a href="#" class="hover:text-white transition">Ota yhteyttä</a>
+</nav>
+
+
+<!-- ③ HEADER · "Lataa sovellus" CTA button
+     Lived in <header>, far right. -->
+<div>
+    <a href="#" class="border border-gray-600 hover:border-white text-xs font-bold tracking-widest uppercase px-6 py-3 rounded-full transition bg-transparent">
+        Lataa sovellus
+    </a>
+</div>
+
+
+<!-- ④ HERO · App Store + Google Play badges
+     Lived in the hero text column (lg:col-span-5), after the <p> subtitle.
+     NOTE: badge images are hot-linked from Apple + Wikimedia. Before going
+     live, host them locally and point the <a href> at the real store URLs. -->
+<div class="flex space-x-4 pt-2">
+    <a href="#" class="hover:opacity-80 transition">
+        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/fi-fi?size=250x83" alt="App Store" class="h-[42px]">
+    </a>
+    <a href="#" class="hover:opacity-80 transition">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" class="h-[42px]">
+    </a>
+</div>
+
+
+<!-- ⑤ FOOTER · phone number (placeholder)
+     Lived in the footer contact block, between "MAKEVENT" and the email.
+     Replace the digits with the real number before re-adding. -->
+<p>+358 123 456 789</p>

@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hinnasto — MAKEVENT</title>
+
+    <!-- SEO -->
+    <meta name="description" content="MAKEVENT-sovelluksen hinnasto. Valitse tarpeisiisi sopiva tili — Ilmainen, Premium tai Pro — ja hallitse tapahtumia helposti.">
+    <meta name="theme-color" content="#06050a">
+    <link rel="canonical" href="https://makevent.fi/hinnasto.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="MAKEVENT">
+    <meta property="og:title" content="Hinnasto — MAKEVENT">
+    <meta property="og:description" content="Valitse tarpeisiisi sopiva tili ja hallitse tapahtumia helposti. Ota kaikki irti Makevent-sovelluksesta.">
+    <meta property="og:url" content="https://makevent.fi/hinnasto.html">
+    <meta property="og:image" content="https://makevent.fi/phones-group.png">
+    <meta property="og:locale" content="fi_FI">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Hinnasto — MAKEVENT">
+    <meta name="twitter:description" content="Valitse tarpeisiisi sopiva tili ja hallitse tapahtumia helposti.">
+    <meta name="twitter:image" content="https://makevent.fi/phones-group.png">
+
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+Semi+Expanded:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Shared site styles + design tokens (see styles.css). -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="text-white min-h-screen flex flex-col overflow-x-hidden antialiased bg-[#25193C]">
+
+    <!-- Background shine + Figma 75% black darkening layer over it. -->
+    <div class="bg-glow" aria-hidden="true"></div>
+    <div class="bg-tint" aria-hidden="true"></div>
+
+    <!-- ===================== HEADER / NAV ===================== -->
+    <header class="w-full max-w-7xl mx-auto px-5 lg:px-10 pt-6 lg:pt-8 pb-2 relative z-50">
+
+        <!-- ===== DESKTOP top row (lg+) ===== -->
+        <div class="hidden lg:flex items-center justify-between gap-6">
+            <div class="flex flex-col items-start gap-2">
+                <a href="/" class="block select-none">
+                    <img src="Logo.png" alt="MAKEVENT" class="h-7 w-auto object-contain">
+                </a>
+                <div class="relative">
+                    <button id="audienceBtn" class="flex items-center gap-1.5 text-sm text-gray-300 hover:text-white transition">
+                        <span class="audience-label">Käyttäjälle</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div id="audienceMenu" class="hidden absolute left-0 mt-2 w-44 rounded-xl bg-[#15121f] border border-white/10 shadow-xl py-1 z-50">
+                        <button class="audience-opt w-full text-left px-4 py-2 text-sm text-white hover:bg-white/5" data-aud="user">Käyttäjälle</button>
+                        <button class="audience-opt w-full text-left px-4 py-2 text-sm text-white hover:bg-white/5" data-aud="biz">Yrittäjille</button>
+                        <button class="audience-opt w-full text-left px-4 py-2 text-sm text-gray-500 hover:bg-white/5" data-aud="food">Foodtruck <span class="text-xs">(tulossa)</span></button>
+                    </div>
+                </div>
+            </div>
+            <a href="https://api.makevent.dev/app" class="cta-glow shrink-0 rounded-full border border-white/25 px-5 py-2.5 text-sm font-bold tracking-wide">
+                LATAA SOVELLUS
+            </a>
+        </div>
+
+        <!-- ===== DESKTOP centre nav (lg+) ===== -->
+        <nav class="hidden lg:flex items-center gap-9 text-[15px] absolute left-1/2 -translate-x-1/2 top-9">
+            <a href="/" class="grad-text hover:opacity-80 transition">Koti</a>
+            <a href="#" class="grad-text hover:opacity-80 transition">Löydä tekemistä</a>
+            <a href="#" class="grad-text hover:opacity-80 transition">Meistä</a>
+            <a href="/hinnasto.html" class="grad-text font-bold nav-glow">Hinnasto</a>
+            <a href="/ota-yhteytta.html" class="grad-text hover:opacity-80 transition">Ota yhteyttä</a>
+        </nav>
+
+        <!-- ===== MOBILE top row (<lg): ☰ · centred logo · download ===== -->
+        <div class="relative flex lg:hidden items-center justify-between">
+            <button id="menuBtn" type="button" aria-label="Avaa valikko" class="text-white nav-glow p-1 -ml-1">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M4 7h16M4 12h16M4 17h16"/></svg>
+            </button>
+            <a href="/" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 select-none">
+                <img src="Logo.png" alt="MAKEVENT" class="h-7 w-auto object-contain">
+            </a>
+            <a href="https://api.makevent.dev/app" aria-label="Lataa sovellus" class="block shrink-0">
+                <img src="logoWithBackground.png" alt="Lataa MAKEVENT-sovellus" class="h-10 w-10 rounded-xl object-cover">
+            </a>
+        </div>
+
+        <!-- ===== MOBILE audience dropdown (centred, <lg) ===== -->
+        <div class="lg:hidden relative flex justify-center mt-1.5">
+            <button id="audienceBtnM" class="flex items-center gap-1.5 text-sm text-gray-300 hover:text-white transition">
+                <span class="audience-label">Käyttäjälle</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div id="audienceMenuM" class="hidden absolute top-full mt-2 left-1/2 -translate-x-1/2 w-44 rounded-xl bg-[#15121f] border border-white/10 shadow-xl py-1 z-50">
+                <button class="audience-opt w-full text-left px-4 py-2 text-sm text-white hover:bg-white/5" data-aud="user">Käyttäjälle</button>
+                <button class="audience-opt w-full text-left px-4 py-2 text-sm text-white hover:bg-white/5" data-aud="biz">Yrittäjille</button>
+                <button class="audience-opt w-full text-left px-4 py-2 text-sm text-gray-500 hover:bg-white/5" data-aud="food">Foodtruck <span class="text-xs">(tulossa)</span></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== MOBILE MENU (full-screen overlay, <lg) ===== -->
+    <div id="mobileMenu" class="lg:hidden fixed inset-0 z-[70] hidden">
+        <div class="menu-panel absolute inset-0 overflow-hidden bg-[#25193C]">
+            <!-- same background as the page: glow sweep + dark tint -->
+            <div class="bg-glow" aria-hidden="true"></div>
+            <div class="bg-tint" aria-hidden="true"></div>
+          <div class="relative z-10 h-full flex flex-col overflow-y-auto">
+            <!-- top bar: logo + close -->
+            <div class="flex items-center justify-between px-5 pt-6 shrink-0">
+                <img src="Logo.png" alt="MAKEVENT" class="h-7 w-auto object-contain">
+                <button id="menuClose" type="button" aria-label="Sulje valikko" class="text-white p-1 -mr-1">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+            </div>
+            <!-- centred nav -->
+            <nav class="flex-1 flex flex-col items-center justify-center gap-8 text-3xl font-semibold py-8">
+                <a href="/" class="grad-text">Koti</a>
+                <a href="#" class="grad-text">Löydä tekemistä</a>
+                <a href="#" class="grad-text">Meistä</a>
+                <a href="/hinnasto.html" class="grad-text font-bold nav-glow">Hinnasto</a>
+                <a href="/ota-yhteytta.html" class="grad-text">Ota yhteyttä</a>
+            </nav>
+            <!-- footer block (mirrors the site footer) -->
+            <div class="shrink-0 px-6 pb-10 pt-4 space-y-6">
+                <img src="logo-footer.png" alt="MAKEVENT" class="h-10 w-auto object-contain">
+                <div class="text-sm text-gray-400 space-y-1.5">
+                    <p><a href="mailto:info@makevent.fi" class="hover:text-white transition">info@makevent.fi</a></p>
+                    <p class="text-xs text-gray-600 pt-2">&copy; 2026 MAKEVENT</p>
+                </div>
+                <div class="text-sm text-gray-400 space-y-2">
+                    <p class="font-bold text-white text-xs uppercase tracking-wider">Socials</p>
+                    <a href="https://www.instagram.com/makevent.fi" target="_blank" rel="noopener noreferrer" class="block hover:text-white transition">Instagram</a>
+                </div>
+                <div class="text-sm text-gray-400 space-y-2">
+                    <p class="font-bold text-white text-xs uppercase tracking-wider">Legal</p>
+                    <a href="/kayttoehdot.html" class="block hover:text-white transition">Käyttöehdot</a>
+                    <a href="/tietosuoja.html" class="block hover:text-white transition">Tietosuojaseloste</a>
+                    <a href="/evasteet.html" class="block hover:text-white transition">Evästekäytäntö</a>
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- ===================== HERO ===================== -->
+    <main class="relative z-10 w-full max-w-6xl mx-auto px-6 lg:px-10 flex-grow flex flex-col items-center pt-10 lg:pt-16">
+        <h1 class="grad-text text-5xl sm:text-6xl font-extrabold tracking-tight text-center">Hinnasto</h1>
+
+        <!-- ================= AUDIENCE: KÄYTTÄJÄLLE ================= -->
+        <div id="aud-user" class="w-full flex flex-col items-center">
+        <p class="mt-6 text-center text-gray-300 text-base sm:text-lg font-light leading-relaxed max-w-xl">
+            Valitse tarpeisiisi sopiva tili ja hallitse tapahtumia helposti.<br>
+            Ota kaikki irti Makevent-sovelluksesta
+        </p>
+
+        <!-- Billing-period tabs -->
+        <div class="mt-12 w-full max-w-4xl">
+            <div class="flex items-center justify-center gap-2 sm:gap-8 lg:gap-14 text-sm sm:text-xl lg:text-2xl font-extrabold">
+                <button class="period-tab text-[#BABABA]" data-period="month">Kuukausitilaus</button>
+                <button class="period-tab text-[#BABABA]/45 hover:text-[#BABABA]/70 transition" data-period="year">Vuositilaus</button>
+                <button class="period-tab text-[#BABABA]/45 hover:text-[#BABABA]/70 transition" data-period="events">Tapahtumat</button>
+            </div>
+            <div class="mt-3 h-px w-full bg-[#BABABA]"></div>
+        </div>
+
+        <!-- ===================== PRICING CARDS ===================== -->
+        <!-- KUUKAUSITILAUS (monthly) -->
+        <section id="panel-month" class="mt-10 w-full grid grid-cols-1 md:grid-cols-3 items-center gap-6 max-w-5xl pb-10">
+
+            <!-- ILMAINEN -->
+            <div class="rounded-2xl border-[1.5px] border-[#BABABA] bg-[#181F2C73] p-6 flex flex-col">
+                <p class="text-center text-sm font-extrabold tracking-widest text-[#BABABA]">ILMAINEN TILI</p>
+                <p id="price-free" class="mt-4 text-center"><span class="text-5xl font-extrabold text-[#BABABA]">0€</span> <span class="text-2xl font-bold text-[#BABABA] whitespace-nowrap">/kk</span></p>
+                <div class="my-5 h-px w-full bg-white/10"></div>
+
+                <div class="space-y-1 flex-grow">
+                    <!-- feature -->
+                    <div class="feat">
+                        <button class="feat-head w-full flex items-start gap-3 text-left py-2">
+                            <svg class="mt-0.5 shrink-0 w-5 h-5" viewBox="0 0 1024 1024" fill="#8A93A2" aria-hidden="true"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"/></svg>
+                            <span class="flex-grow text-sm text-[#BABABA]">1 julkinen tapahtuma</span>
+                            <svg class="chev mt-1 w-4 h-4 shrink-0 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div class="feat-body"><p class="pl-8 pb-3 text-[13px] leading-relaxed text-[#BABABA]">Näkyy kaikille sovelluksen käyttäjille. Kuka tahansa voi löytää tapahtuman ja osallistua siihen.</p></div>
+                    </div>
+                    <div class="feat">
+                        <button class="feat-head w-full flex items-start gap-3 text-left py-2">
+                            <svg class="mt-0.5 shrink-0 w-5 h-5" viewBox="0 0 1024 1024" fill="#8A93A2" aria-hidden="true"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"/></svg>
+                            <span class="flex-grow text-sm text-[#BABABA]">Rajaton määrä yksityisiä tapahtumia ja chatteja</span>
+                            <svg class="chev mt-1 w-4 h-4 shrink-0 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div class="feat-body"><p class="pl-8 pb-3 text-[13px] leading-relaxed text-[#BABABA]">Luo niin monta yksityistä tapahtumaa ja chattia kuin haluat. Ne eivät näy julkisesti, vaan ovat vain sinun ja kutsumiesi henkilöiden saatavilla.</p></div>
+                    </div>
+                    <div class="feat">
+                        <button class="feat-head w-full flex items-start gap-3 text-left py-2">
+                            <svg class="mt-0.5 shrink-0 w-5 h-5" viewBox="0 0 1024 1024" fill="#8A93A2" aria-hidden="true"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"/></svg>
+                            <span class="flex-grow text-sm text-[#BABABA]">Discovery feed ja profiili</span>
+                            <svg class="chev mt-1 w-4 h-4 shrink-0 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div class="feat-body"><p class="pl-8 pb-3 text-[13px] leading-relaxed text-[#BABABA]">Tutki ympäristöäsi ja löydä kiinnostavaa tekemistä 15 kategoriasta kartalta tai listalta. Kustomoi profiilistasi juuri omannäköisesi ja lisää kaverisi ystäviksi.</p></div>
+                    </div>
+                </div>
+
+                <a href="https://api.makevent.dev/app" class="mt-6 self-center rounded-full border-[1.5px] border-[#BABABA] card-btn px-8 py-3 text-sm font-extrabold tracking-wide text-center text-[#BABABA]">ALOITA NYT</a>
+            </div>
+
+            <!-- PREMIUM -->
+            <div class="rounded-2xl border-[1.5px] border-[#BABABA] bg-[#181F2C73] p-6 flex flex-col">
+                <p class="text-center text-sm font-extrabold tracking-widest text-[#BABABA]">PREMIUM TILI</p>
+                <p id="price-premium" class="mt-4 text-center"><span class="text-5xl font-extrabold text-[#BABABA]">2,99€</span> <span class="text-2xl font-bold text-[#BABABA] whitespace-nowrap">/kk</span></p>
+                <div class="my-5 h-px w-full bg-white/10"></div>
+
+                <div class="space-y-1 flex-grow">
+                    <div class="feat">
+                        <button class="feat-head w-full flex items-start gap-3 text-left py-2">
+                            <svg class="ck-glow mt-0.5 shrink-0 w-5 h-5" viewBox="0 0 1024 1024" fill="#29A52F" aria-hidden="true"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"/></svg>
+                            <span class="flex-grow text-sm font-semibold text-[#29A52F] txt-glow-green">6 julkista tapahtumaa</span>
+                            <svg class="chev mt-1 w-4 h-4 shrink-0 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div class="feat-body"><p class="pl-8 pb-3 text-[13px] leading-relaxed text-[#BABABA]">Näkyy kaikille sovelluksen käyttäjille. Kuka tahansa voi löytää tapahtuman ja osallistua siihen.</p></div>
+                    </div>
+                    <div class="feat">
+                        <button class="feat-head w-full flex items-start gap-3 text-left py-2">
+                            <svg class="mt-0.5 shrink-0 w-5 h-5" viewBox="0 0 1024 1024" fill="#8A93A2" aria-hidden="true"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"/></svg>
+                            <span class="flex-grow text-sm text-[#BABABA]">Rajaton määrä yksityisiä tapahtumia ja chatteja</span>
+                            <svg class="chev mt-1 w-4 h-4 shrink-0 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div class="feat-body"><p class="pl-8 pb-3 text-[13px] leading-relaxed text-[#BABABA]">Luo niin monta yksityistä tapahtumaa ja chattia kuin haluat. Ne eivät näy julkisesti, vaan ovat vain sinun ja kutsumiesi henkilöiden saatavilla.</p></div>
+                    </div>
+                    <div class="feat">
+                        <button class="feat-head w-full flex items-start gap-3 text-left py-2">
+                            <svg class="mt-0.5 shrink-0 w-5 h-5" viewBox="0 0 1024 1024" fill="#8A93A2" aria-hidden="true"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"/></svg>
+                            <span class="flex-grow text-sm text-[#BABABA]">Discovery feed ja profiili</span>
+                            <svg class="chev mt-1 w-4 h-4 shrink-0 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div class="feat-body"><p class="pl-8 pb-3 text-[13px] leading-relaxed text-[#BABABA]">Tutki ympäristöäsi ja löydä kiinnostavaa tekemistä 15 kategoriasta kartalta tai listalta. Kustomoi profiilistasi juuri omannäköisesi ja lisää kaverisi ystäviksi.</p></div>
+                    </div>
+                    <div class="feat">
+                        <button class="feat-head w-full flex items-start gap-3 text-left py-2">
+                            <svg class="ck-glow mt-0.5 shrink-0 w-5 h-5" viewBox="0 0 1024 1024" fill="#29A52F" aria-hidden="true"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"/></svg>
+                            <span class="flex-grow text-sm font-semibold text-[#29A52F] txt-glow-green">Tapahtuma data</span>
+                            <svg class="chev mt-1 w-4 h-4 shrink-0 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div class="feat-body"><p class="pl-8 pb-3 text-[13px] leading-relaxed text-[#BABABA]">Ota data avuksesi ja näe, mikä yleisöäsi kiinnostaa. Tarkastele omien tapahtumiesi tykkäyksiä, jakoja, katselukertoja ja chat-aktiivisuutta selkeiden tilastojen avulla.</p></div>
+                    </div>
+                </div>
+
+                <a href="https://api.makevent.dev/app" class="mt-6 self-center rounded-full border-[1.5px] border-[#BABABA] card-btn px-8 py-3 text-sm font-extrabold tracking-wide text-center text-[#BABABA]">VALITSE TILAUS</a>
+            </div>
+
+            <!-- PRO -->
+            <div class="rounded-2xl border-[1.5px] border-[#BABABA] bg-[#181F2C73] p-6 flex flex-col">
+                <p class="text-center text-sm font-extrabold tracking-widest text-[#BABABA]">PRO TILI</p>
+                <p id="price-pro" class="mt-4 text-center"><span class="text-5xl font-extrabold text-[#BABABA]">9,99€</span> <span class="text-2xl font-bold text-[#BABABA] whitespace-nowrap">/kk</span></p>
+                <div class="my-5 h-px w-full bg-white/10"></div>
+
+                <div class="space-y-1 flex-grow">
+                    <div class="feat">
+                        <button class="feat-head w-full flex items-start gap-3 text-left py-2">
+                            <svg class="ck-glow mt-0.5 shrink-0 w-5 h-5" viewBox="0 0 1024 1024" fill="#29A52F" aria-hidden="true"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"/></svg>
+                            <span class="flex-grow text-sm font-semibold text-[#29A52F] txt-glow-green">Rajaton määrä julkisia tapahtumia</span>
+                            <svg class="chev mt-1 w-4 h-4 shrink-0 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div class="feat-body"><p class="pl-8 pb-3 text-[13px] leading-relaxed text-[#BABABA]">Näkyy kaikille sovelluksen käyttäjille. Kuka tahansa voi löytää tapahtuman ja osallistua siihen.</p></div>
+                    </div>
+                    <div class="feat">
+                        <button class="feat-head w-full flex items-start gap-3 text-left py-2">
+                            <svg class="mt-0.5 shrink-0 w-5 h-5" viewBox="0 0 1024 1024" fill="#8A93A2" aria-hidden="true"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"/></svg>
+                            <span class="flex-grow text-sm text-[#BABABA]">Rajaton määrä yksityisiä tapahtumia ja chatteja</span>
+                            <svg class="chev mt-1 w-4 h-4 shrink-0 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div class="feat-body"><p class="pl-8 pb-3 text-[13px] leading-relaxed text-[#BABABA]">Luo niin monta yksityistä tapahtumaa ja chattia kuin haluat. Ne eivät näy julkisesti, vaan ovat vain sinun ja kutsumiesi henkilöiden saatavilla.</p></div>
+                    </div>
+                    <div class="feat">
+                        <button class="feat-head w-full flex items-start gap-3 text-left py-2">
+                            <svg class="mt-0.5 shrink-0 w-5 h-5" viewBox="0 0 1024 1024" fill="#8A93A2" aria-hidden="true"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"/></svg>
+                            <span class="flex-grow text-sm text-[#BABABA]">Discovery feed ja profiili</span>
+                            <svg class="chev mt-1 w-4 h-4 shrink-0 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div class="feat-body"><p class="pl-8 pb-3 text-[13px] leading-relaxed text-[#BABABA]">Tutki ympäristöäsi ja löydä kiinnostavaa tekemistä 15 kategoriasta kartalta tai listalta. Kustomoi profiilistasi juuri omannäköisesi ja lisää kaverisi ystäviksi.</p></div>
+                    </div>
+                    <div class="feat">
+                        <button class="feat-head w-full flex items-start gap-3 text-left py-2">
+                            <svg class="ck-glow mt-0.5 shrink-0 w-5 h-5" viewBox="0 0 1024 1024" fill="#29A52F" aria-hidden="true"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"/></svg>
+                            <span class="flex-grow text-sm font-semibold text-[#29A52F] txt-glow-green">Tapahtuma data</span>
+                            <svg class="chev mt-1 w-4 h-4 shrink-0 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div class="feat-body"><p class="pl-8 pb-3 text-[13px] leading-relaxed text-[#BABABA]">Ota data avuksesi ja näe, mikä yleisöäsi kiinnostaa. Tarkastele omien tapahtumiesi tykkäyksiä, jakoja, katselukertoja ja chat-aktiivisuutta selkeiden tilastojen avulla.</p></div>
+                    </div>
+                </div>
+
+                <a href="https://api.makevent.dev/app" class="mt-6 self-center rounded-full border-[1.5px] border-[#BABABA] card-btn px-8 py-3 text-sm font-extrabold tracking-wide text-center text-[#BABABA]">VALITSE TILAUS</a>
+            </div>
+        </section>
+
+        <!-- Yearly-only note under the cards (shown when Vuositilaus active).
+             grad-text like the nav links, but larger. -->
+        <p id="panel-year" class="hidden mt-2 mb-24 text-center grad-text text-xl sm:text-2xl font-extrabold">Säästät 2 kuukauden maksut kun otat vuositilauksen</p>
+        <!-- TAPAHTUMAT — per-event pricing: two centred cards. -->
+        <section id="panel-events" class="hidden mt-10 w-full max-w-5xl pb-24">
+            <div class="flex flex-wrap justify-center items-stretch gap-6">
+                <!-- YKSITYINEN TAPAHTUMA -->
+                <div class="rounded-2xl border-[1.5px] border-[#BABABA] bg-[#181F2C73] p-6 w-full sm:w-80 flex flex-col text-center">
+                    <p class="text-sm font-extrabold tracking-widest text-[#BABABA]">YKSITYINEN TAPAHTUMA</p>
+                    <p class="mt-4"><span class="text-5xl font-extrabold text-[#BABABA]">0€</span></p>
+                    <p class="mt-5 flex-grow text-sm leading-relaxed text-[#BABABA]">Näkyy vain kutsutuille vieraille. Tapahtumaa ei voi löytää ilman kutsua tai sinun jakamaasi linkkiä.</p>
+                    <a href="https://api.makevent.dev/app" class="mt-6 self-center rounded-full border-[1.5px] border-[#BABABA] card-btn px-8 py-3 text-sm font-extrabold tracking-wide text-center text-[#BABABA]">ALOITA NYT</a>
+                </div>
+                <!-- JULKINEN TAPAHTUMA -->
+                <div class="rounded-2xl border-[1.5px] border-[#BABABA] bg-[#181F2C73] p-6 w-full sm:w-80 flex flex-col text-center">
+                    <p class="text-sm font-extrabold tracking-widest text-[#BABABA]">JULKINEN TAPAHTUMA</p>
+                    <p class="mt-4"><span class="text-5xl font-extrabold text-[#BABABA]">0,99€</span></p>
+                    <p class="mt-5 flex-grow text-sm leading-relaxed text-[#BABABA]">Näkyy kaikille sovelluksen käyttäjille. Kuka tahansa voi löytää tapahtuman ja osallistua siihen.</p>
+                    <a href="https://api.makevent.dev/app" class="mt-6 self-center rounded-full border-[1.5px] border-[#BABABA] card-btn px-8 py-3 text-sm font-extrabold tracking-wide text-center text-[#BABABA]">OSTA TAPAHTUMA</a>
+                </div>
+            </div>
+        </section>
+        </div><!-- /#aud-user -->
+
+        <!-- ================= AUDIENCE: YRITTÄJILLE (food truck skipped for now) ================= -->
+        <div id="aud-biz" class="hidden w-full flex flex-col items-center">
+            <p class="mt-6 text-center text-gray-300 text-base sm:text-lg font-light leading-relaxed max-w-xl">
+                Kasvata näkyvyyttäsi ja tehosta myyntiäsi.<br>
+                Valitse liiketoiminnallesi sopiva tilausmalli ja tavoita uudet asiakkaat helposti.
+            </p>
+
+            <h2 class="grad-text mt-12 text-3xl sm:text-4xl font-extrabold tracking-tight text-center">Yrittäjä tilaukset</h2>
+
+            <!-- Billing-period tabs (entrepreneur) -->
+            <div class="mt-8 w-full max-w-4xl">
+                <div class="flex items-center justify-center gap-2 sm:gap-8 lg:gap-14 text-sm sm:text-xl lg:text-2xl font-extrabold">
+                    <button class="period-tab text-[#BABABA]" data-period="month">Kuukausitilaus</button>
+                    <button class="period-tab text-[#BABABA]/45 hover:text-[#BABABA]/70 transition" data-period="year">Vuositilaus</button>
+                </div>
+                <div class="mt-3 h-px w-full bg-[#BABABA]"></div>
+            </div>
+
+            <!-- Entrepreneur cards (2, centred) -->
+            <section id="panel-biz-month" class="mt-10 w-full grid grid-cols-1 md:grid-cols-2 items-center gap-6 max-w-2xl pb-10">
+
+                <!-- ILMAINEN YRITTÄJÄTILI -->
+                <div class="rounded-2xl border-[1.5px] border-[#BABABA] bg-[#181F2C73] p-6 flex flex-col">
+                    <p class="text-center text-sm font-extrabold tracking-widest text-[#BABABA]">ILMAINEN YRITTÄJÄTILI</p>
+                    <p id="price-biz-free" class="mt-4 text-center"><span class="text-5xl font-extrabold text-[#BABABA]">0€</span> <span class="text-2xl font-bold text-[#BABABA] whitespace-nowrap">/kk</span></p>
+                    <div class="my-5 h-px w-full bg-white/10"></div>
+                    <div class="space-y-1 flex-grow">
+                        <div class="feat">
+                            <button class="feat-head w-full flex items-start gap-3 text-left py-2">
+                                <svg class="mt-0.5 shrink-0 w-5 h-5" viewBox="0 0 1024 1024" fill="#8A93A2" aria-hidden="true"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"/></svg>
+                                <span class="flex-grow text-sm text-[#BABABA]">Näkyvyys discovery feedillä</span>
+                                <svg class="chev mt-1 w-4 h-4 shrink-0 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            </button>
+                            <div class="feat-body"><p class="pl-8 pb-3 text-[13px] leading-relaxed text-[#BABABA]">Anna sovelluksen tehdä työ puolestasi. Sovelluksemme hakee yrityksesi ja tapahtumiesi tiedot täysin automaattisesti ja nostaa ne suoraan käyttäjien discovery feedille ilman erillistä vaivannäköä.</p></div>
+                        </div>
+                        <div class="feat">
+                            <button class="feat-head w-full flex items-start gap-3 text-left py-2">
+                                <svg class="mt-0.5 shrink-0 w-5 h-5" viewBox="0 0 1024 1024" fill="#8A93A2" aria-hidden="true"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"/></svg>
+                                <span class="flex-grow text-sm text-[#BABABA]">Yhteydenotot sähköpostitse.</span>
+                                <svg class="chev mt-1 w-4 h-4 shrink-0 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            </button>
+                            <div class="feat-body"><p class="pl-8 pb-3 text-[13px] leading-relaxed text-[#BABABA]">Asiakkaat voivat ottaa yritykseesi yhteyttä suoraan sovelluksen kautta. Ilmaisella yrittäjätilillä kaikki asiakkaiden yhteydenotot ohjautuvat sinulle sähköpostitse.</p></div>
+                        </div>
+                    </div>
+                    <a href="https://api.makevent.dev/app" class="mt-6 self-center rounded-full border-[1.5px] border-[#BABABA] card-btn px-8 py-3 text-sm font-extrabold tracking-wide text-center text-[#BABABA]">ALOITA NYT</a>
+                </div>
+
+                <!-- PRO YRITTÄJÄ TILI -->
+                <div class="rounded-2xl border-[1.5px] border-[#BABABA] bg-[#181F2C73] p-6 flex flex-col">
+                    <p class="text-center text-sm font-extrabold tracking-widest text-[#BABABA]">PRO YRITTÄJÄ TILI</p>
+                    <p id="price-biz-pro" class="mt-4 text-center"><span class="text-5xl font-extrabold text-[#BABABA]">39,99€</span> <span class="text-2xl font-bold text-[#BABABA] whitespace-nowrap">/kk</span></p>
+                    <div class="my-5 h-px w-full bg-white/10"></div>
+                    <div class="space-y-1 flex-grow">
+                        <div class="feat">
+                            <button class="feat-head w-full flex items-start gap-3 text-left py-2">
+                                <svg class="mt-0.5 shrink-0 w-5 h-5" viewBox="0 0 1024 1024" fill="#8A93A2" aria-hidden="true"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"/></svg>
+                                <span class="flex-grow text-sm text-[#BABABA]">Näkyvyys discovery feedillä</span>
+                                <svg class="chev mt-1 w-4 h-4 shrink-0 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            </button>
+                            <div class="feat-body"><p class="pl-8 pb-3 text-[13px] leading-relaxed text-[#BABABA]">Anna sovelluksen tehdä työ puolestasi. Sovelluksemme hakee yrityksesi ja tapahtumiesi tiedot täysin automaattisesti ja nostaa ne suoraan käyttäjien discovery feedille ilman erillistä vaivannäköä.</p></div>
+                        </div>
+                        <div class="feat">
+                            <button class="feat-head w-full flex items-start gap-3 text-left py-2">
+                                <svg class="ck-glow mt-0.5 shrink-0 w-5 h-5" viewBox="0 0 1024 1024" fill="#29A52F" aria-hidden="true"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"/></svg>
+                                <span class="flex-grow text-sm font-semibold text-[#29A52F] txt-glow-green">Helppo suoramarkkinointi.</span>
+                                <svg class="chev mt-1 w-4 h-4 shrink-0 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            </button>
+                            <div class="feat-body"><p class="pl-8 pb-3 text-[13px] leading-relaxed text-[#BABABA]">Tavoita uskollisimmat asiakkaasi hetkessä. Voit kirjoittaa suoramarkkinointiviestin, joka lähtee jokaiselle fanillesi suoraan direct-viestinä. Kun fani vastaa viestiin, viestittely yhteys aukeaa ja pääset juttelemaan hänen kanssaan henkilökohtaisesti.</p></div>
+                        </div>
+                        <div class="feat">
+                            <button class="feat-head w-full flex items-start gap-3 text-left py-2">
+                                <svg class="ck-glow mt-0.5 shrink-0 w-5 h-5" viewBox="0 0 1024 1024" fill="#29A52F" aria-hidden="true"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"/></svg>
+                                <span class="flex-grow text-sm font-semibold text-[#29A52F] txt-glow-green">Asiakasdata ja analytiikka</span>
+                                <svg class="chev mt-1 w-4 h-4 shrink-0 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            </button>
+                            <div class="feat-body"><p class="pl-8 pb-3 text-[13px] leading-relaxed text-[#BABABA]">Seuraa yritystilisi ja tapahtumiesi suosiota reaaliajassa. Näet tarkat tilastot tapahtumien katselukerroista, jaoista, sydämistä ja chateista sekä tilisi kävijämääristä, uusista faneista ja direct-viesteistä. Datasta selviää myös, mistä palveluistasi asiakkaat ovat kiinnostuneita sekä se, minkä kategorioiden ja milloin fanisi haluavat osallistua tapahtumiin.</p></div>
+                        </div>
+                        <div class="feat">
+                            <button class="feat-head w-full flex items-start gap-3 text-left py-2">
+                                <svg class="ck-glow mt-0.5 shrink-0 w-5 h-5" viewBox="0 0 1024 1024" fill="#29A52F" aria-hidden="true"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"/></svg>
+                                <span class="flex-grow text-sm font-semibold text-[#29A52F] txt-glow-green">Direct viestit asiakkaiden kanssa</span>
+                                <svg class="chev mt-1 w-4 h-4 shrink-0 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            </button>
+                            <div class="feat-body"><p class="pl-8 pb-3 text-[13px] leading-relaxed text-[#BABABA]">Unohda sähköpostirumba. Päivittämällä maksulliseen tiliin siirrät asiakasyhteydenotot sähköpostista sovelluksen sisäisiin direct-viesteihin, jolloin tavoitat asiakkaasi siellä, missä he jo valmiiksi ovat.</p></div>
+                        </div>
+                    </div>
+                    <a href="https://api.makevent.dev/app" class="mt-6 self-center rounded-full border-[1.5px] border-[#BABABA] card-btn px-8 py-3 text-sm font-extrabold tracking-wide text-center text-[#BABABA]">VALITSE TILAUS</a>
+                </div>
+            </section>
+
+            <p id="panel-biz-year" class="hidden mt-2 mb-24 text-center grad-text text-xl sm:text-2xl font-extrabold">Säästät 2 kuukauden maksut kun otat vuositilauksen</p>
+        </div><!-- /#aud-biz -->
+    </main>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="w-full pt-10 pb-10 px-10 mt-auto relative z-50">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
+            <div class="md:col-span-5">
+                <div class="mb-4 select-none">
+                    <img src="logo-footer.png" alt="MAKEVENT" class="h-8 lg:h-12 w-auto object-contain">
+                </div>
+            </div>
+            <div class="md:col-span-3 space-y-2 text-sm text-gray-400">
+                <p class="font-bold text-white text-base tracking-wide">MAKEVENT</p>
+                <p><a href="mailto:info@makevent.fi" class="hover:text-white transition">info@makevent.fi</a></p>
+                <p class="text-xs text-gray-600 pt-4">&copy; 2026 MAKEVENT</p>
+            </div>
+            <div class="md:col-span-2 space-y-3 text-sm text-gray-400">
+                <p class="font-bold text-white text-xs uppercase tracking-wider">Socials</p>
+                <ul class="space-y-2">
+                    <li><a href="https://www.instagram.com/makevent.fi" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">Instagram</a></li>
+                </ul>
+            </div>
+            <div class="md:col-span-2 space-y-3 text-sm text-gray-400">
+                <p class="font-bold text-white text-xs uppercase tracking-wider">Legal</p>
+                <ul class="space-y-2">
+                    <li><a href="/kayttoehdot.html" class="hover:text-white transition">Käyttöehdot</a></li>
+                    <li><a href="/tietosuoja.html" class="hover:text-white transition">Tietosuojaseloste</a></li>
+                    <li><a href="/evasteet.html" class="hover:text-white transition">Evästekäytäntö</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Accordion: toggle a feature's explanation open/closed.
+        document.querySelectorAll('.feat-head').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                btn.closest('.feat').classList.toggle('open');
+            });
+        });
+
+        // Billing-period tabs. The subscription cards (#panel-month) show for
+        // BOTH Kuukausi + Vuosi — only the prices swap (DRY) and the yearly
+        // note (#panel-year) toggles. Tapahtumat (#panel-events) is its own panel.
+        var PRICES = {
+            free: {
+                month: '<span class="text-5xl font-extrabold text-[#BABABA]">0€</span> <span class="text-2xl font-bold text-[#BABABA] whitespace-nowrap">/kk</span>',
+                year:  '<span class="text-5xl font-extrabold text-[#BABABA]">0€</span> <span class="text-2xl font-bold text-[#BABABA] whitespace-nowrap">/kk</span>'
+            },
+            premium: {
+                month: '<span class="text-5xl font-extrabold text-[#BABABA]">2,99€</span> <span class="text-2xl font-bold text-[#BABABA] whitespace-nowrap">/kk</span>',
+                year:  '<span class="text-5xl font-extrabold text-[#BABABA]">2,49 €</span> <span class="text-2xl font-bold text-[#BABABA] whitespace-nowrap">/kk</span><span class="block mt-1 text-sm font-bold text-[#BABABA]">(29,88 € /12kk)</span><span class="block mt-2 text-sm font-bold text-[#BABABA]">norm. 2,99 € /kk &nbsp; (35,88 € /12kk)</span>'
+            },
+            pro: {
+                month: '<span class="text-5xl font-extrabold text-[#BABABA]">9,99€</span> <span class="text-2xl font-bold text-[#BABABA] whitespace-nowrap">/kk</span>',
+                year:  '<span class="text-5xl font-extrabold text-[#BABABA]">8,29€</span> <span class="text-2xl font-bold text-[#BABABA] whitespace-nowrap">/kk</span><span class="block mt-1 text-sm font-bold text-[#BABABA]">(99,48 € /12kk)</span><span class="block mt-2 text-sm font-bold text-[#BABABA]">norm. 9,99 € /kk &nbsp; (119,88 € /12kk)</span>'
+            }
+        };
+
+        // Entrepreneur prices. NOTE: the Vuosi figures are ESTIMATED (2 months off
+        // the monthly) — replace with the real numbers when confirmed.
+        var PRICES_BIZ = {
+            'biz-free': {
+                month: '<span class="text-5xl font-extrabold text-[#BABABA]">0€</span> <span class="text-2xl font-bold text-[#BABABA] whitespace-nowrap">/kk</span>',
+                year:  '<span class="text-5xl font-extrabold text-[#BABABA]">0€</span> <span class="text-2xl font-bold text-[#BABABA] whitespace-nowrap">/kk</span>'
+            },
+            'biz-pro': {
+                month: '<span class="text-5xl font-extrabold text-[#BABABA]">39,99€</span> <span class="text-2xl font-bold text-[#BABABA] whitespace-nowrap">/kk</span>',
+                year:  '<span class="text-5xl font-extrabold text-[#BABABA]">33,33€</span> <span class="text-2xl font-bold text-[#BABABA] whitespace-nowrap">/kk</span><span class="block mt-1 text-sm font-bold text-[#BABABA]">(399,90 € /12kk)</span><span class="block mt-2 text-sm font-bold text-[#BABABA]">norm. 39,99 € /kk &nbsp; (479,88 € /12kk)</span>'
+            }
+        };
+        // Re-triggerable fade-in: toggling .anim-in restarts the animation.
+        function animIn(el) {
+            el.classList.remove('anim-in');
+            void el.offsetWidth; // force reflow so the animation replays
+            el.classList.add('anim-in');
+        }
+        // Reusable period-tab wiring, scoped to ONE audience panel so the user
+        // and entrepreneur tab sets don't clash. cfg.events is optional.
+        function wireTabs(scope, cfg) {
+            if (!scope) return;
+            var monthPanel  = scope.querySelector(cfg.month);
+            var yearNote    = cfg.year   ? scope.querySelector(cfg.year)   : null;
+            var eventsPanel = cfg.events ? scope.querySelector(cfg.events) : null;
+            function setPeriod(p) {
+                cfg.tiers.forEach(function (k) {
+                    var el = document.getElementById('price-' + k);
+                    if (el) el.innerHTML = cfg.prices[k][p];
+                });
+            }
+            function animInCards() {
+                Array.prototype.forEach.call(monthPanel.children, function (card, i) {
+                    card.classList.remove('anim-in');
+                    void card.offsetWidth; // reflow → replay
+                    card.style.animationDelay = (i * 0.07) + 's';
+                    card.classList.add('anim-in');
+                });
+            }
+            scope.querySelectorAll('.period-tab').forEach(function (tab) {
+                tab.addEventListener('click', function () {
+                    scope.querySelectorAll('.period-tab').forEach(function (t) {
+                        t.classList.remove('text-[#BABABA]');
+                        t.classList.add('text-[#BABABA]/45');
+                    });
+                    tab.classList.add('text-[#BABABA]');
+                    tab.classList.remove('text-[#BABABA]/45');
+                    var p = tab.dataset.period;
+                    if (p === 'events' && eventsPanel) {
+                        monthPanel.classList.add('hidden');
+                        if (yearNote) yearNote.classList.add('hidden');
+                        eventsPanel.classList.remove('hidden');
+                        animIn(eventsPanel);
+                    } else {
+                        if (eventsPanel) eventsPanel.classList.add('hidden');
+                        monthPanel.classList.remove('hidden');
+                        setPeriod(p);
+                        animInCards();
+                        if (yearNote) {
+                            yearNote.classList.toggle('hidden', p !== 'year');
+                            if (p === 'year') animIn(yearNote);
+                        }
+                    }
+                });
+            });
+        }
+        wireTabs(document.getElementById('aud-user'), {
+            prices: PRICES, tiers: ['free', 'premium', 'pro'],
+            month: '#panel-month', year: '#panel-year', events: '#panel-events'
+        });
+        wireTabs(document.getElementById('aud-biz'), {
+            prices: PRICES_BIZ, tiers: ['biz-free', 'biz-pro'],
+            month: '#panel-biz-month', year: '#panel-biz-year'
+        });
+
+        // ---- Audience dropdowns (desktop #audienceBtn + mobile #audienceBtnM
+        //      share .audience-opt options and .audience-label text) ----
+        var AUD = { user: 'aud-user', biz: 'aud-biz' };
+        function wireDropdown(btnId, menuId) {
+            var b = document.getElementById(btnId), m = document.getElementById(menuId);
+            if (!b || !m) return;
+            b.addEventListener('click', function (e) { e.stopPropagation(); m.classList.toggle('hidden'); });
+        }
+        wireDropdown('audienceBtn', 'audienceMenu');
+        wireDropdown('audienceBtnM', 'audienceMenuM');
+        function closeAudienceMenus() {
+            ['audienceMenu', 'audienceMenuM'].forEach(function (id) {
+                var m = document.getElementById(id); if (m) m.classList.add('hidden');
+            });
+        }
+        document.addEventListener('click', closeAudienceMenus);
+        document.querySelectorAll('.audience-opt').forEach(function (opt) {
+            opt.addEventListener('click', function () {
+                var aud = opt.dataset.aud;
+                if (AUD[aud]) { // food = tulossa → ignored for now
+                    var label = opt.textContent.trim();
+                    document.querySelectorAll('.audience-label').forEach(function (l) { l.textContent = label; });
+                    Object.keys(AUD).forEach(function (k) {
+                        document.getElementById(AUD[k]).classList.toggle('hidden', k !== aud);
+                    });
+                }
+                closeAudienceMenus();
+            });
+        });
+
+        // ---- Mobile menu (full-screen overlay) ----
+        var mobileMenu = document.getElementById('mobileMenu');
+        if (mobileMenu) {
+            var openMenu = function () { mobileMenu.classList.remove('hidden'); requestAnimationFrame(function () { mobileMenu.classList.add('open'); }); };
+            var closeMenu = function () { mobileMenu.classList.remove('open'); setTimeout(function () { mobileMenu.classList.add('hidden'); }, 250); };
+            document.getElementById('menuBtn').addEventListener('click', openMenu);
+            document.getElementById('menuClose').addEventListener('click', closeMenu);
+            // Tapping any link closes the menu (same-page anchors won't reload).
+            mobileMenu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', closeMenu); });
+        }
+    </script>
+</body>
+</html>

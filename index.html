@@ -7,7 +7,7 @@
 
     <!-- SEO -->
     <meta name="description" content="MAKEVENT on kaupunkiopas, joka helpottaa tapahtumien ja menojen löytämistä sekä järjestämistä. Lataa sovellus iOS:lle ja Androidille.">
-    <meta name="theme-color" content="#06050a">
+    <meta name="theme-color" content="#25193C">
     <link rel="canonical" href="https://makevent.fi/">
 
     <!-- Open Graph / link previews (WhatsApp, iMessage, Facebook, LinkedIn) -->
@@ -25,36 +25,126 @@
     <meta name="twitter:description" content="Kaupunkiopas helpottamaan tapahtumien ja menojen löytämistä sekä järjestämistä.">
     <meta name="twitter:image" content="https://makevent.fi/phones-group.png">
 
-    <!-- Icons -->
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-    <!-- NOTE: Tailwind via Play CDN is fine for v1 but prints a console
-         warning and is not optimised for production. "Go from there":
-         swap for a compiled Tailwind build (npx tailwindcss -o style.css). -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #06050a;
-            background-image: radial-gradient(circle at 75% 30%, #1a142e 0%, #06050a 65%);
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+Semi+Expanded:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body class="text-white min-h-screen flex flex-col overflow-x-hidden antialiased bg-[#06050a]">
+<body class="text-white min-h-screen flex flex-col overflow-x-hidden antialiased bg-[#25193C]">
 
-    <!-- Basic header: centered logo for now. Nav / dropdown / "Lataa
-         sovellus" intentionally removed — to be added back later. -->
-    <header class="w-full max-w-7xl mx-auto px-10 py-8 flex items-center justify-center relative z-50">
-        <a href="/" class="block select-none">
-            <img src="Logo.png" alt="MAKEVENT" class="h-7 w-auto object-contain">
-        </a>
+    <!-- Background shine + dark layer (see styles.css). -->
+    <div class="bg-glow" aria-hidden="true"></div>
+    <div class="bg-tint" aria-hidden="true"></div>
+
+    <!-- ===================== HEADER / NAV ===================== -->
+    <header class="w-full max-w-7xl mx-auto px-5 lg:px-10 pt-6 lg:pt-8 pb-2 relative z-50">
+
+        <!-- ===== DESKTOP top row (lg+) ===== -->
+        <div class="hidden lg:flex items-center justify-between gap-6">
+            <div class="flex flex-col items-start gap-2">
+                <a href="/" class="block select-none">
+                    <img src="Logo.png" alt="MAKEVENT" class="h-7 w-auto object-contain">
+                </a>
+                <div class="relative">
+                    <button id="audienceBtn" class="flex items-center gap-1.5 text-sm text-gray-300 hover:text-white transition">
+                        <span class="audience-label">Käyttäjälle</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div id="audienceMenu" class="hidden absolute left-0 mt-2 w-44 rounded-xl bg-[#15121f] border border-white/10 shadow-xl py-1 z-50">
+                        <a href="/hinnasto.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-white/5">Käyttäjälle</a>
+                        <a href="/hinnasto.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-white/5">Yrittäjille</a>
+                        <span class="block w-full text-left px-4 py-2 text-sm text-gray-500">Foodtruck <span class="text-xs">(tulossa)</span></span>
+                    </div>
+                </div>
+            </div>
+            <a href="https://api.makevent.dev/app" class="cta-glow shrink-0 rounded-full border border-white/25 px-5 py-2.5 text-sm font-bold tracking-wide">
+                LATAA SOVELLUS
+            </a>
+        </div>
+
+        <!-- ===== DESKTOP centre nav (lg+) ===== -->
+        <nav class="hidden lg:flex items-center gap-9 text-[15px] absolute left-1/2 -translate-x-1/2 top-9">
+            <a href="/" class="grad-text font-bold nav-glow">Koti</a>
+            <a href="#" class="grad-text hover:opacity-80 transition">Löydä tekemistä</a>
+            <a href="#" class="grad-text hover:opacity-80 transition">Meistä</a>
+            <a href="/hinnasto.html" class="grad-text hover:opacity-80 transition">Hinnasto</a>
+            <a href="/ota-yhteytta.html" class="grad-text hover:opacity-80 transition">Ota yhteyttä</a>
+        </nav>
+
+        <!-- ===== MOBILE top row (<lg): ☰ · centred logo · download ===== -->
+        <div class="relative flex lg:hidden items-center justify-between">
+            <button id="menuBtn" type="button" aria-label="Avaa valikko" class="text-white nav-glow p-1 -ml-1">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M4 7h16M4 12h16M4 17h16"/></svg>
+            </button>
+            <a href="/" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 select-none">
+                <img src="Logo.png" alt="MAKEVENT" class="h-7 w-auto object-contain">
+            </a>
+            <a href="https://api.makevent.dev/app" aria-label="Lataa sovellus" class="block shrink-0">
+                <img src="logoWithBackground.png" alt="Lataa MAKEVENT-sovellus" class="h-10 w-10 rounded-xl object-cover">
+            </a>
+        </div>
+
+        <!-- ===== MOBILE audience dropdown (centred, <lg) ===== -->
+        <div class="lg:hidden relative flex justify-center mt-1.5">
+            <button id="audienceBtnM" class="flex items-center gap-1.5 text-sm text-gray-300 hover:text-white transition">
+                <span class="audience-label">Käyttäjälle</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div id="audienceMenuM" class="hidden absolute top-full mt-2 left-1/2 -translate-x-1/2 w-44 rounded-xl bg-[#15121f] border border-white/10 shadow-xl py-1 z-50">
+                <a href="/hinnasto.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-white/5">Käyttäjälle</a>
+                <a href="/hinnasto.html" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-white/5">Yrittäjille</a>
+                <span class="block w-full text-left px-4 py-2 text-sm text-gray-500">Foodtruck <span class="text-xs">(tulossa)</span></span>
+            </div>
+        </div>
     </header>
 
-    <main class="w-full max-w-7xl mx-auto px-10 flex-grow flex flex-col justify-start relative pt-2 lg:pt-4">
+    <!-- ===== MOBILE MENU (full-screen overlay, <lg) ===== -->
+    <div id="mobileMenu" class="lg:hidden fixed inset-0 z-[70] hidden">
+        <div class="menu-panel absolute inset-0 overflow-hidden bg-[#25193C]">
+            <!-- same background as the page: glow sweep + dark tint -->
+            <div class="bg-glow" aria-hidden="true"></div>
+            <div class="bg-tint" aria-hidden="true"></div>
+          <div class="relative z-10 h-full flex flex-col overflow-y-auto">
+            <div class="flex items-center justify-between px-5 pt-6 shrink-0">
+                <img src="Logo.png" alt="MAKEVENT" class="h-7 w-auto object-contain">
+                <button id="menuClose" type="button" aria-label="Sulje valikko" class="text-white p-1 -mr-1">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+            </div>
+            <nav class="flex-1 flex flex-col items-center justify-center gap-8 text-3xl font-semibold py-8">
+                <a href="/" class="grad-text font-bold nav-glow">Koti</a>
+                <a href="#" class="grad-text">Löydä tekemistä</a>
+                <a href="#" class="grad-text">Meistä</a>
+                <a href="/hinnasto.html" class="grad-text">Hinnasto</a>
+                <a href="/ota-yhteytta.html" class="grad-text">Ota yhteyttä</a>
+            </nav>
+            <div class="shrink-0 px-6 pb-10 pt-4 space-y-6">
+                <img src="logo-footer.png" alt="MAKEVENT" class="h-10 w-auto object-contain">
+                <div class="text-sm text-gray-400 space-y-1.5">
+                    <p><a href="mailto:info@makevent.fi" class="hover:text-white transition">info@makevent.fi</a></p>
+                    <p class="text-xs text-gray-600 pt-2">&copy; 2026 MAKEVENT</p>
+                </div>
+                <div class="text-sm text-gray-400 space-y-2">
+                    <p class="font-bold text-white text-xs uppercase tracking-wider">Socials</p>
+                    <a href="https://www.instagram.com/makevent.fi" target="_blank" rel="noopener noreferrer" class="block hover:text-white transition">Instagram</a>
+                </div>
+                <div class="text-sm text-gray-400 space-y-2">
+                    <p class="font-bold text-white text-xs uppercase tracking-wider">Legal</p>
+                    <a href="/kayttoehdot.html" class="block hover:text-white transition">Käyttöehdot</a>
+                    <a href="/tietosuoja.html" class="block hover:text-white transition">Tietosuojaseloste</a>
+                    <a href="/evasteet.html" class="block hover:text-white transition">Evästekäytäntö</a>
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- ===================== HERO ===================== -->
+    <main class="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-10 flex-grow flex flex-col justify-start pt-4 lg:pt-4">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center lg:items-stretch w-full relative grow-0 lg:grow">
 
             <div class="lg:col-span-7 w-full flex justify-center items-center lg:items-end order-2 lg:order-1 relative z-30">
@@ -75,28 +165,25 @@
         </div>
     </main>
 
-    <footer class="w-full bg-[#040306] border-t border-purple-950/10 pt-10 pb-10 px-10 mt-auto relative z-50">
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="w-full pt-10 pb-10 px-10 mt-auto relative z-50">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
-
             <div class="md:col-span-5">
                 <div class="mb-4 select-none">
                     <img src="logo-footer.png" alt="MAKEVENT" class="h-8 lg:h-12 w-auto object-contain">
                 </div>
             </div>
-
             <div class="md:col-span-3 space-y-2 text-sm text-gray-400">
                 <p class="font-bold text-white text-base tracking-wide">MAKEVENT</p>
                 <p><a href="mailto:info@makevent.fi" class="hover:text-white transition">info@makevent.fi</a></p>
                 <p class="text-xs text-gray-600 pt-4">&copy; 2026 MAKEVENT</p>
             </div>
-
             <div class="md:col-span-2 space-y-3 text-sm text-gray-400">
                 <p class="font-bold text-white text-xs uppercase tracking-wider">Socials</p>
                 <ul class="space-y-2">
                     <li><a href="https://www.instagram.com/makevent.fi" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">Instagram</a></li>
                 </ul>
             </div>
-
             <div class="md:col-span-2 space-y-3 text-sm text-gray-400">
                 <p class="font-bold text-white text-xs uppercase tracking-wider">Legal</p>
                 <ul class="space-y-2">
@@ -105,9 +192,33 @@
                     <li><a href="/evasteet.html" class="hover:text-white transition">Evästekäytäntö</a></li>
                 </ul>
             </div>
-
         </div>
     </footer>
 
+    <script>
+        // Audience dropdowns (desktop + mobile) — open/close; options jump to Hinnasto.
+        function wireDropdown(btnId, menuId) {
+            var b = document.getElementById(btnId), m = document.getElementById(menuId);
+            if (!b || !m) return;
+            b.addEventListener('click', function (e) { e.stopPropagation(); m.classList.toggle('hidden'); });
+        }
+        wireDropdown('audienceBtn', 'audienceMenu');
+        wireDropdown('audienceBtnM', 'audienceMenuM');
+        document.addEventListener('click', function () {
+            ['audienceMenu', 'audienceMenuM'].forEach(function (id) {
+                var m = document.getElementById(id); if (m) m.classList.add('hidden');
+            });
+        });
+
+        // Mobile menu (full-screen overlay)
+        var mobileMenu = document.getElementById('mobileMenu');
+        if (mobileMenu) {
+            var openMenu = function () { mobileMenu.classList.remove('hidden'); requestAnimationFrame(function () { mobileMenu.classList.add('open'); }); };
+            var closeMenu = function () { mobileMenu.classList.remove('open'); setTimeout(function () { mobileMenu.classList.add('hidden'); }, 250); };
+            document.getElementById('menuBtn').addEventListener('click', openMenu);
+            document.getElementById('menuClose').addEventListener('click', closeMenu);
+            mobileMenu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', closeMenu); });
+        }
+    </script>
 </body>
 </html>

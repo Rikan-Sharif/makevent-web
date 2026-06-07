@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!-- =====================================================================
+     MAKEVENT page template — copy this to start a new view.
+     1. Rename to <page>.html
+     2. Fill in <title>, the SEO/OG meta, and the canonical/og:url.
+     3. Mark the active nav link (grad-text font-bold nav-glow) + point the
+        others at their pages.
+     4. Put the page content inside <main>.
+     Shared tokens + classes live in styles.css. Layout via Tailwind (CDN).
+     ===================================================================== -->
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAGE TITLE — MAKEVENT</title>
+
+    <!-- SEO / Open Graph (edit per page) -->
+    <meta name="description" content="">
+    <meta name="theme-color" content="#25193C">
+    <link rel="canonical" href="https://makevent.fi/PAGE.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="MAKEVENT">
+    <meta property="og:title" content="PAGE TITLE — MAKEVENT">
+    <meta property="og:description" content="">
+    <meta property="og:url" content="https://makevent.fi/PAGE.html">
+    <meta property="og:image" content="https://makevent.fi/phones-group.png">
+    <meta property="og:locale" content="fi_FI">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="PAGE TITLE — MAKEVENT">
+    <meta name="twitter:image" content="https://makevent.fi/phones-group.png">
+
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+Semi+Expanded:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="text-white min-h-screen flex flex-col overflow-x-hidden antialiased bg-[#25193C]">
+
+    <!-- Background shine + dark layer (see styles.css). -->
+    <div class="bg-glow" aria-hidden="true"></div>
+    <div class="bg-tint" aria-hidden="true"></div>
+
+    <!-- ===================== HEADER / NAV ===================== -->
+    <header class="w-full max-w-7xl mx-auto px-6 lg:px-10 pt-8 pb-2 relative z-50">
+        <div class="flex items-center justify-between gap-6">
+            <a href="/" class="block select-none">
+                <img src="Logo.png" alt="MAKEVENT" class="h-7 w-auto object-contain">
+            </a>
+            <!-- Set the ACTIVE link to: grad-text font-bold nav-glow -->
+            <nav class="hidden lg:flex items-center gap-9 text-[15px] absolute left-1/2 -translate-x-1/2 top-9">
+                <a href="/" class="grad-text hover:opacity-80 transition">Koti</a>
+                <a href="#" class="grad-text hover:opacity-80 transition">Löydä tekemistä</a>
+                <a href="#" class="grad-text hover:opacity-80 transition">Meistä</a>
+                <a href="/hinnasto.html" class="grad-text hover:opacity-80 transition">Hinnasto</a>
+                <a href="/ota-yhteytta.html" class="grad-text hover:opacity-80 transition">Ota yhteyttä</a>
+            </nav>
+            <a href="https://api.makevent.dev/app" class="cta-glow shrink-0 rounded-full border border-white/25 px-5 py-2.5 text-sm font-bold tracking-wide">
+                LATAA SOVELLUS
+            </a>
+        </div>
+    </header>
+
+    <!-- ===================== CONTENT ===================== -->
+    <main class="relative z-10 w-full max-w-6xl mx-auto px-6 lg:px-10 flex-grow flex flex-col items-center pt-10 lg:pt-16">
+        <!-- Page title pattern: <h1 class="grad-text text-5xl sm:text-6xl font-extrabold tracking-tight text-center">…</h1> -->
+        <!-- PAGE CONTENT HERE -->
+    </main>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="w-full pt-10 pb-10 px-10 mt-auto relative z-50">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
+            <div class="md:col-span-5">
+                <div class="mb-4 select-none">
+                    <img src="logo-footer.png" alt="MAKEVENT" class="h-8 lg:h-12 w-auto object-contain">
+                </div>
+            </div>
+            <div class="md:col-span-3 space-y-2 text-sm text-gray-400">
+                <p class="font-bold text-white text-base tracking-wide">MAKEVENT</p>
+                <p><a href="mailto:info@makevent.fi" class="hover:text-white transition">info@makevent.fi</a></p>
+                <p class="text-xs text-gray-600 pt-4">&copy; 2026 MAKEVENT</p>
+            </div>
+            <div class="md:col-span-2 space-y-3 text-sm text-gray-400">
+                <p class="font-bold text-white text-xs uppercase tracking-wider">Socials</p>
+                <ul class="space-y-2">
+                    <li><a href="https://www.instagram.com/makevent.fi" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">Instagram</a></li>
+                </ul>
+            </div>
+            <div class="md:col-span-2 space-y-3 text-sm text-gray-400">
+                <p class="font-bold text-white text-xs uppercase tracking-wider">Legal</p>
+                <ul class="space-y-2">
+                    <li><a href="/kayttoehdot.html" class="hover:text-white transition">Käyttöehdot</a></li>
+                    <li><a href="/tietosuoja.html" class="hover:text-white transition">Tietosuojaseloste</a></li>
+                    <li><a href="/evasteet.html" class="hover:text-white transition">Evästekäytäntö</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

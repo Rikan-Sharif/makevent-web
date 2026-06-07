@@ -1,0 +1,155 @@
+/* =====================================================================
+   MAKEVENT — shared site styles & design tokens
+   ---------------------------------------------------------------------
+   Link this on EVERY page:  <link rel="stylesheet" href="styles.css">
+   Pairs with Tailwind (CDN) for layout. Reuse the tokens + classes below
+   so all views stay consistent. (Glow spec mirrors the app's flutter_glow.)
+   ===================================================================== */
+
+:root {
+    /* ---- Colours ---- */
+    --bg-base:   #25193C;     /* page background base (dark purple)        */
+    --text:      #BABABA;     /* primary text + icons                      */
+    --green:     #29A52F;     /* brand green — highlights / success        */
+    --btn:       #1C242B;     /* button fill                               */
+    --card:      #181F2C;     /* card fill — used at 45% → #181F2C73        */
+    --border:    #BABABA;     /* card + divider border                     */
+    --sweep:     112, 105, 231; /* #7069E7 periwinkle — bg shine ONLY (rgb) */
+    --green-rgb: 41, 165, 47;
+
+    /* ---- Glow (flutter_glow-style: blurred shadow in element's own colour) */
+    --glow-blur:       3px;
+    --glow-blur-hover: 6px;
+    --glow-a:          0.6;
+    --glow-a-hover:    0.9;
+}
+
+/* ---- Base ---- */
+body {
+    font-family: 'Encode Sans Semi Expanded', sans-serif;
+    background-color: var(--bg-base);
+    position: relative;
+}
+
+/* ---- Background ----
+   Add right after <body>:  <div class="bg-glow"></div><div class="bg-tint"></div>
+   A diagonal periwinkle shine swept edge-to-edge, then a 55% black layer
+   over it. Page content sits above: header/footer z-50, main z-10. */
+.bg-glow {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 115vh;
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+}
+.bg-glow::before {
+    content: "";
+    position: absolute;
+    top: 46%; left: 54%;
+    width: 165vw; height: 80vh;
+    transform: translate(-50%, -50%) rotate(36deg);
+    background: radial-gradient(ellipse,
+        rgba(var(--sweep), 0.30) 0%,
+        rgba(var(--sweep), 0.15) 42%,
+        transparent 74%);
+    filter: blur(85px);
+}
+.bg-tint {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.55);
+    pointer-events: none;
+}
+
+/* ---- White→grey metallic gradient text (#FFFFFF → #B2B2B2) ----
+   Used on big titles + nav links. */
+.grad-text {
+    background: linear-gradient(180deg, #FFFFFF 0%, #B2B2B2 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+/* ---- Glow ----
+   ALWAYS-ON: .ck-glow (green icons), .txt-glow-green (green text),
+   .cta-glow (download CTA: white border+text; brightens on hover).
+   HOVER-ONLY: .nav-glow (active nav), .btn-glow (card buttons: text+border). */
+.ck-glow {
+    filter: drop-shadow(0 0 var(--glow-blur) rgba(var(--green-rgb), var(--glow-a)));
+}
+.txt-glow-green {
+    text-shadow: 0 0 var(--glow-blur) rgba(var(--green-rgb), var(--glow-a));
+}
+.cta-glow {
+    filter: drop-shadow(0 0 var(--glow-blur) rgba(255, 255, 255, var(--glow-a)));
+    transition: filter .25s ease;
+}
+.cta-glow:hover {
+    filter: drop-shadow(0 0 var(--glow-blur-hover) rgba(255, 255, 255, var(--glow-a-hover)));
+}
+.nav-glow {
+    transition: filter .25s ease;
+}
+.nav-glow:hover {
+    filter: drop-shadow(0 0 var(--glow-blur-hover) rgba(255, 255, 255, var(--glow-a-hover)));
+}
+.btn-glow {
+    transition: text-shadow .25s ease, box-shadow .25s ease;
+}
+.btn-glow:hover {
+    text-shadow: 0 0 var(--glow-blur-hover) rgba(255, 255, 255, var(--glow-a-hover));
+    box-shadow:  0 0 var(--glow-blur-hover) rgba(255, 255, 255, 0.5);
+}
+
+/* ---- Card buttons: #1C242B given a top-lit gradient + depth shadow ----
+   The "lighting + shadow" treatment (fill stays #1C242B — the gradient is
+   centred on it). Hover keeps the unified white glow (text + halo).
+   ⚠️ MIRROR IN THE FLUTTER APP: PrimaryButton/SecondaryButton are flat
+   (elevation:0) — give them this same gradient + boxShadow. Values in memory. */
+.card-btn {
+    /* Top = the true #1C242B (never lighter, so it reads as the correct colour);
+       only darkens downward. Depth comes from the drop-shadow, not a bright sheen. */
+    background: linear-gradient(180deg, #1C242B 0%, #161D23 100%);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.40);
+    transition: box-shadow .25s ease, text-shadow .25s ease;
+}
+.card-btn:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.40),
+                0 0 var(--glow-blur-hover) rgba(255, 255, 255, 0.5);
+    text-shadow: 0 0 var(--glow-blur-hover) rgba(255, 255, 255, var(--glow-a-hover));
+}
+
+/* ---- Pricing tabs (padding shrinks on narrow screens so the 3 fit) ---- */
+.period-tab {
+    padding: 0.4rem 0.6rem;
+}
+@media (min-width: 640px) {
+    .period-tab { padding: 0.75rem 1.5rem; }
+}
+
+/* ---- Accordion (expandable feature rows) ---- */
+.feat-body {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height .32s ease, opacity .25s ease, margin .32s ease;
+}
+.feat.open .feat-body { max-height: 260px; opacity: 1; }
+.feat .chev { transition: transform .3s ease; }
+.feat.open .chev { transform: rotate(180deg); }
+
+/* ---- Fade-in (re-triggerable from JS by toggling .anim-in) ----
+   Used on tab/price swaps; reusable for any "content just changed" entrance. */
+@keyframes fade-in {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+.anim-in { animation: fade-in .3s ease both; }
+
+/* ---- Mobile menu (full-screen overlay, < lg) ----
+   #mobileMenu (fixed, JS toggles .hidden) > .menu-panel (full-screen, fades in via .open). */
+#mobileMenu .menu-panel { opacity: 0; transition: opacity .25s ease; }
+#mobileMenu.open .menu-panel { opacity: 1; }

@@ -90,6 +90,12 @@ body {
 .cta-glow:hover {
     filter: drop-shadow(0 0 var(--glow-blur-hover) rgba(255, 255, 255, var(--glow-a-hover)));
 }
+
+/* TEMP: app not released yet — hide every "Lataa sovellus" download CTA (desktop
+   .cta-glow button + mobile app-icon link) site-wide until launch. Remove to restore. */
+.cta-glow,
+a[aria-label="Lataa sovellus"] { display: none !important; }
+
 .nav-glow {
     transition: filter .25s ease;
 }

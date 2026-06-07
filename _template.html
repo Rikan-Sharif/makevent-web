@@ -1,28 +1,32 @@
 <!DOCTYPE html>
+<!-- =====================================================================
+     MAKEVENT page template — copy this to start a new view.
+     1. Rename to <page>.html
+     2. Fill in <title>, the SEO/OG meta, and the canonical/og:url.
+     3. Mark the active nav link (grad-text font-bold nav-glow) + point the
+        others at their pages.
+     4. Put the page content inside <main>.
+     Shared tokens + classes live in styles.css. Layout via Tailwind (CDN).
+     ===================================================================== -->
 <html lang="fi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAKEVENT — Kaikki tekemiseen liittyvä taskussasi</title>
+    <title>PAGE TITLE — MAKEVENT</title>
 
-    <!-- SEO -->
-    <meta name="description" content="MAKEVENT on kaupunkiopas, joka helpottaa tapahtumien ja menojen löytämistä sekä järjestämistä. Lataa sovellus iOS:lle ja Androidille.">
+    <!-- SEO / Open Graph (edit per page) -->
+    <meta name="description" content="">
     <meta name="theme-color" content="#25193C">
-    <link rel="canonical" href="https://makevent.fi/">
-
-    <!-- Open Graph / link previews (WhatsApp, iMessage, Facebook, LinkedIn) -->
+    <link rel="canonical" href="https://makevent.fi/PAGE.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="MAKEVENT">
-    <meta property="og:title" content="MAKEVENT — Kaikki tekemiseen liittyvä taskussasi">
-    <meta property="og:description" content="Kaupunkiopas helpottamaan tapahtumien ja menojen löytämistä sekä järjestämistä.">
-    <meta property="og:url" content="https://makevent.fi/">
+    <meta property="og:title" content="PAGE TITLE — MAKEVENT">
+    <meta property="og:description" content="">
+    <meta property="og:url" content="https://makevent.fi/PAGE.html">
     <meta property="og:image" content="https://makevent.fi/phones-group.png">
     <meta property="og:locale" content="fi_FI">
-
-    <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="MAKEVENT — Kaikki tekemiseen liittyvä taskussasi">
-    <meta name="twitter:description" content="Kaupunkiopas helpottamaan tapahtumien ja menojen löytämistä sekä järjestämistä.">
+    <meta name="twitter:title" content="PAGE TITLE — MAKEVENT">
     <meta name="twitter:image" content="https://makevent.fi/phones-group.png">
 
     <link rel="icon" type="image/png" href="favicon.png">
@@ -41,7 +45,7 @@
     <div class="bg-tint" aria-hidden="true"></div>
 
     <!-- ===================== HEADER / NAV ===================== -->
-    <header class="w-full max-w-[1920px] mx-auto px-5 lg:px-10 pt-6 lg:pt-8 pb-2 relative z-50">
+    <header class="w-full max-w-7xl mx-auto px-5 lg:px-10 pt-6 lg:pt-8 pb-2 relative z-50">
 
         <!-- ===== DESKTOP top row (lg+) ===== -->
         <div class="hidden lg:flex items-center justify-between gap-6">
@@ -66,9 +70,9 @@
             </a>
         </div>
 
-        <!-- ===== DESKTOP centre nav (lg+) ===== -->
+        <!-- ===== DESKTOP centre nav (lg+) — set the ACTIVE link to: grad-text font-bold nav-glow ===== -->
         <nav class="hidden lg:flex items-center gap-9 text-[15px] absolute left-1/2 -translate-x-1/2 top-9">
-            <a href="/" class="grad-text font-bold nav-glow">Koti</a>
+            <a href="/" class="grad-text hover:opacity-80 transition">Koti</a>
             <a href="/hinnasto.html" class="grad-text hover:opacity-80 transition">Hinnasto</a>
             <a href="/ota-yhteytta.html" class="grad-text hover:opacity-80 transition">Ota yhteyttä</a>
         </nav>
@@ -100,13 +104,12 @@
         </div>
     </header>
 
-    <!-- ===== MOBILE MENU (full-screen overlay, <lg) ===== -->
+    <!-- ===== MOBILE MENU (full-screen overlay, <lg) — set the ACTIVE link to: grad-text font-bold nav-glow ===== -->
     <div id="mobileMenu" class="lg:hidden fixed inset-0 z-[70] hidden">
         <div class="menu-panel absolute inset-0 overflow-hidden bg-[#25193C]">
-            <!-- same background as the page: glow sweep + dark tint -->
             <div class="bg-glow" aria-hidden="true"></div>
             <div class="bg-tint" aria-hidden="true"></div>
-          <div class="relative z-10 h-full flex flex-col overflow-y-auto">
+          <div class="relative z-10 h-full flex flex-col">
             <div class="flex items-center justify-between px-5 pt-6 shrink-0">
                 <img src="Logo.png" alt="MAKEVENT" class="h-7 w-auto object-contain">
                 <button id="menuClose" type="button" aria-label="Sulje valikko" class="text-white p-1 -mr-1">
@@ -114,7 +117,7 @@
                 </button>
             </div>
             <nav class="flex-1 flex flex-col items-center justify-center gap-8 text-3xl font-semibold py-8">
-                <a href="/" class="grad-text font-bold nav-glow">Koti</a>
+                <a href="/" class="grad-text">Koti</a>
                 <a href="/hinnasto.html" class="grad-text">Hinnasto</a>
                 <a href="/ota-yhteytta.html" class="grad-text">Ota yhteyttä</a>
             </nav>
@@ -122,47 +125,15 @@
         </div>
     </div>
 
-    <!-- ===================== HERO ===================== -->
-    <main class="relative z-10 w-full max-w-[1920px] mx-auto px-6 lg:px-10 flex-grow flex flex-col justify-start pt-4">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center lg:items-stretch w-full relative grow content-between lg:content-stretch">
-
-            <div class="lg:col-span-7 w-full flex justify-center items-center lg:items-end order-2 lg:order-1 relative z-30">
-                <!-- Phones frame: <picture> serves WebP (PNG fallback); srcset picks the sharpest
-                     for each screen × DPR. object-contain = never clips; fluid width = smooth scaling. -->
-                <picture>
-                    <source type="image/webp"
-                            srcset="frame.webp 1006w, frame1.5x.webp 1509w, frame2x.webp 2012w, frame3x.webp 3018w"
-                            sizes="(min-width: 1024px) 58vw, 92vw">
-                    <img src="frame.png"
-                         srcset="frame.png 1006w, frame1.5x.png 1509w, frame2x.png 2012w, frame3x.png 3018w"
-                         sizes="(min-width: 1024px) 58vw, 92vw"
-                         alt="Makevent-sovellus: luo, löydä ja koe"
-                         class="w-full max-w-[640px] lg:max-w-none h-auto object-contain block drop-shadow-[0_20px_50px_rgba(0,0,0,0.6)]">
-                </picture>
-            </div>
-
-            <div class="lg:col-span-5 text-right flex flex-col items-end justify-start order-1 lg:order-2 space-y-6 relative z-40 lg:pt-8">
-                <!-- 1 row on desktop (lg:whitespace-nowrap + fluid vw size so it always fits the
-                     column); wraps to 2 lines on mobile via the lg:hidden break. -->
-                <!-- Fixed size (no vw shrink). 1 row on wide screens; the break shows
-                     below ~1900px so it wraps cleanly into 2 lines instead of shrinking. -->
-                <h1 class="grad-text text-3xl sm:text-4xl font-light tracking-tight leading-[1.1] max-w-xl lg:max-w-none select-none">
-                    <span class="font-extrabold">Tunne kaupunki</span><br class="min-[1900px]:hidden"> kuin omat taskusi.
-                </h1>
-
-                <p class="grad-text text-xl sm:text-2xl font-semibold max-w-lg leading-relaxed">
-                    Tapahtumat, paikat ja yhteydenpito – kaikki samassa sovelluksessa.
-                </p>
-            </div>
-
-        </div>
+    <!-- ===================== CONTENT ===================== -->
+    <main class="relative z-10 w-full max-w-6xl mx-auto px-6 lg:px-10 flex-grow flex flex-col items-center pt-10 lg:pt-16">
+        <!-- Page title pattern: <h1 class="grad-text text-5xl sm:text-6xl font-extrabold tracking-tight text-center">…</h1> -->
+        <!-- PAGE CONTENT HERE -->
     </main>
 
     <!-- ===================== FOOTER ===================== -->
-    <footer class="w-full pb-10 px-10 mt-auto relative z-50">
-        <!-- BABABA divider running above the footer (the hero/phones meet it). -->
-        <div class="max-w-[1920px] mx-auto h-px bg-[#BABABA]"></div>
-        <div class="max-w-[1920px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-start pt-10">
+    <footer class="w-full pt-10 pb-10 px-10 mt-auto relative z-50">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
             <div class="md:col-span-5">
                 <div class="mb-4 select-none">
                     <img src="logo-footer.png" alt="MAKEVENT" class="h-8 lg:h-12 w-auto object-contain">
@@ -215,5 +186,6 @@
             mobileMenu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', closeMenu); });
         }
     </script>
+
 </body>
 </html>

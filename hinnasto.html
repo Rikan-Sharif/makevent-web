@@ -33,6 +33,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+Semi+Expanded:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Shared site styles + design tokens (see styles.css). -->
     <link rel="stylesheet" href="styles.css">
+
+    <!-- TEMP: pricing CTAs (ALOITA NYT / VALITSE TILAUS / OSTA TAPAHTUMA) are hidden until
+         checkout/subscriptions are wired up. Delete this <style> block to restore them. -->
+    <style>#aud-user .card-btn, #aud-biz .card-btn { display: none !important; }</style>
 </head>
 <body class="text-white min-h-screen flex flex-col overflow-x-hidden antialiased bg-[#25193C]">
 
@@ -68,9 +72,9 @@
 
         <!-- ===== DESKTOP centre nav (lg+) ===== -->
         <nav class="hidden lg:flex items-center gap-9 text-[15px] absolute left-1/2 -translate-x-1/2 top-9">
-            <a href="/" class="grad-text hover:opacity-80 transition">Koti</a>
+            <a href="/" class="grad-text nav-glow">Koti</a>
             <a href="/hinnasto.html" class="grad-text font-bold nav-glow">Hinnasto</a>
-            <a href="/ota-yhteytta.html" class="grad-text hover:opacity-80 transition">Ota yhteyttä</a>
+            <a href="/ota-yhteytta.html" class="grad-text nav-glow">Ota yhteyttä</a>
         </nav>
 
         <!-- ===== MOBILE top row (<lg): ☰ · centred logo · download ===== -->

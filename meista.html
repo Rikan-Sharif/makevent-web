@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meistä — MAKEVENT</title>
+
+    <meta name="description" content="Tutustu MAKEVENT-tiimiin ja tarinaamme sovelluksen taustalla.">
+    <meta name="theme-color" content="#25193C">
+    <link rel="canonical" href="https://makevent.fi/meista">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="MAKEVENT">
+    <meta property="og:title" content="Meistä — MAKEVENT">
+    <meta property="og:description" content="Tutustu MAKEVENT-tiimiin ja tarinaamme sovelluksen taustalla.">
+    <meta property="og:url" content="https://makevent.fi/meista">
+    <meta property="og:image" content="https://makevent.fi/phones-group.png">
+    <meta property="og:locale" content="fi_FI">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Meistä — MAKEVENT">
+    <meta name="twitter:image" content="https://makevent.fi/phones-group.png">
+
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+Semi+Expanded:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="text-white min-h-screen flex flex-col overflow-x-hidden antialiased bg-[#25193C]">
+
+    <div class="bg-glow" aria-hidden="true"></div>
+    <div class="bg-tint" aria-hidden="true"></div>
+
+    <header class="w-full max-w-7xl mx-auto px-5 lg:px-10 pt-6 lg:pt-8 pb-2 relative z-50">
+
+        <div class="hidden lg:flex items-center justify-between gap-6">
+            <div class="flex flex-col items-start gap-2">
+                <a href="/" class="block select-none">
+                    <img src="Logo.png" alt="MAKEVENT" class="h-7 w-auto object-contain">
+                </a>
+            </div>
+            <a href="https://api.makevent.dev/app" class="cta-glow shrink-0 rounded-full border border-white/25 px-5 py-2.5 text-sm font-bold tracking-wide">
+                LATAA SOVELLUS
+            </a>
+        </div>
+
+        <nav class="hidden lg:flex items-center gap-9 text-[15px] absolute left-1/2 -translate-x-1/2 top-9">
+            <a href="/" class="grad-text nav-glow">Koti</a>
+            <a href="/hinnasto" class="grad-text nav-glow">Hinnasto</a>
+            <a href="/meista" class="grad-text font-bold nav-glow">Meistä</a>
+            <a href="/ota-yhteytta" class="grad-text nav-glow">Ota yhteyttä</a>
+        </nav>
+
+        <div class="relative flex lg:hidden items-center justify-between">
+            <button id="menuBtn" type="button" aria-label="Avaa valikko" class="text-white nav-glow p-1 -ml-1">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M4 7h16M4 12h16M4 17h16"/></svg>
+            </button>
+            <a href="/" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 select-none">
+                <img src="Logo.png" alt="MAKEVENT" class="h-7 w-auto object-contain">
+            </a>
+            <a href="https://api.makevent.dev/app" aria-label="Lataa sovellus" class="block shrink-0">
+                <img src="logoWithBackground.png" alt="Lataa MAKEVENT-sovellus" class="h-10 w-10 rounded-xl object-cover">
+            </a>
+        </div>
+
+    </header>
+
+    <div id="mobileMenu" class="lg:hidden fixed inset-0 z-[70] hidden">
+        <div class="menu-panel absolute inset-0 overflow-hidden bg-[#25193C]">
+            <div class="bg-glow" aria-hidden="true"></div>
+            <div class="bg-tint" aria-hidden="true"></div>
+          <div class="relative z-10 h-full flex flex-col">
+            <div class="flex items-center justify-between px-5 pt-6 shrink-0">
+                <img src="Logo.png" alt="MAKEVENT" class="h-7 w-auto object-contain">
+                <button id="menuClose" type="button" aria-label="Sulje valikko" class="text-white p-1 -mr-1">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+            </div>
+            <nav class="flex-1 flex flex-col items-center justify-center gap-8 text-3xl font-semibold py-8">
+                <a href="/" class="grad-text">Koti</a>
+                <a href="/hinnasto" class="grad-text">Hinnasto</a>
+                <a href="/meista" class="grad-text font-bold nav-glow">Meistä</a>
+                <a href="/ota-yhteytta" class="grad-text">Ota yhteyttä</a>
+            </nav>
+          </div>
+        </div>
+    </div>
+
+    <main class="relative z-10 w-full max-w-6xl mx-auto px-6 lg:px-10 flex-grow flex flex-col items-center pt-10 lg:pt-20 pb-24">
+        
+        <section class="w-full grid grid-cols-1 md:grid-cols-12 gap-10 items-center mb-24">
+            <div class="md:col-span-7">
+                <h1 class="text-white text-5xl sm:text-6xl font-extrabold tracking-tight mb-6">Meidän tarina</h1>
+                <div class="text-gray-300 space-y-4 text-base sm:text-lg leading-relaxed">
+                    <p>
+                        Kuten varmaan tiedät, Stadi on täynnä elämää. Siellä on sairaan siistejä pop-up-tapahtumia, piilotettuja kattoterasseja, keikkoja, klubeja ja urheilujuttuja. Silti me huomattiin liian usein maanantaina selaavamme somesta kuvia jostain eeppisistä bileistä tai taidenäyttelystä ja miettivämme: ”Miten ihmeessä mä kuulen tästä vasta nyt?”
+                    </p>
+                    <p>
+                        Me kyllästyttiin siihen, että parhaat tapahtumat menee aina ohi ja parhaat mestat löytyy liian myöhään. Joten päätettiin siis kääriä hihat, laittaa koodauskoneet käymään ja korjata tilanne kerralla.
+                    </p>
+                     <p>
+                        Meidän visio on yksinkertainen: me halutaan, että sä voit tuntea Helsingin kuin taskusi!
+                    </p>
+                </div>
+            </div>
+            <div class="md:col-span-5 flex justify-center">
+                <img src="tiimikuva.png" alt="MAKEVENT tiimi" class="w-full max-w-md h-auto rounded-2xl border border-white/10 object-cover shadow-xl">
+            </div>
+        </section>
+
+        <section class="w-full mb-24">
+            <h2 class="grad-text text-3xl sm:text-4xl font-extrabold tracking-tight text-center mb-12">Tiimi taustalla</h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 w-full">
+                <div class="flex flex-col items-center text-center p-4 bg-[#181F2C73] rounded-2xl border border-white/5">
+                    <img src="Alan.png" alt="Alan" class="w-48 h-48 rounded-full object-cover mb-4 border-2 border-white/10">
+                    <h3 class="text-white text-xl font-bold">Alan A. Sharif</h3>
+                    <p class="grad-text text-sm font-semibold uppercase tracking-wider mb-3">Founder / CEO</p>
+                    <p class="text-gray-400 text-sm italic">"Mun missiona on varmistaa, että sä löydät aina Stadin parhaat mestat ja kovimmat tapahtumat ilman sähläämistä. Tehdään tästä yhdessä jotain sairaan siistiä!"</p>
+                </div>
+
+                <div class="flex flex-col items-center text-center p-4 bg-[#181F2C73] rounded-2xl border border-white/5">
+                    <img src="samu.png" alt="Samu Rytkönen" class="w-48 h-48 rounded-full object-cover mb-4 border-2 border-white/10">
+                    <h3 class="text-white text-xl font-bold">Samu Rytkönen</h3>
+                    <p class="grad-text text-sm font-semibold uppercase tracking-wider mb-3">Co-Founder / Designer</p>
+                    <p class="text-gray-400 text-sm italic">"Mä pidän huolen siitä, että Makeventin käyttöliittymä on niin sulava ja hyvännäköinen, että sä oikeasti haluat käyttää sitä joka päivä. Ei mitään turhaa säätöä."</p>
+                </div>
+
+                <div class="flex flex-col items-center text-center p-4 bg-[#181F2C73] rounded-2xl border border-white/5 sm:col-span-2 md:col-span-1 sm:max-w-md sm:mx-auto md:w-full">
+                    <img src="Rikan.png" alt="Rikan Sharif" class="w-48 h-48 rounded-full object-cover mb-4 border-2 border-white/10">
+                    <h3 class="text-white text-xl font-bold">Rikan Sharif</h3>
+                    <p class="grad-text text-sm font-semibold uppercase tracking-wider mb-3">Co-Founder / CTO</p>
+                    <p class="text-gray-400 text-sm italic">"Mun tontilla on koodi ja taustajärjestelmät. Mä varmistan, että appi rullaa salamannopeasti ja bittijonot pysyy järjestyksessä silloinkin, kun Stadissa on täysi hulina päällä."</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="w-full text-center">
+            <h2 class="grad-text text-2xl sm:text-3xl font-extrabold tracking-tight mb-8">Yhteistyökumppanit</h2>
+            <div class="flex flex-wrap items-center justify-center gap-12 md:gap-16">
+                <img src="kumppani-logo1.png" alt="Kumppani 1" class="h-24 sm:h-36 w-auto object-contain">
+                <img src="kumppani-logo2.png" alt="Kumppani 2" class="h-24 sm:h-36 w-auto object-contain">
+                <img src="kumppani-logo3.png" alt="Kumppani 3" class="h-24 sm:h-36 w-auto object-contain">
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="w-full pt-10 pb-10 px-10 mt-auto relative z-50">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
+            <div class="md:col-span-5">
+                <div class="mb-4 select-none">
+                    <a href="/">
+                        <img src="logo-footer.png" alt="MAKEVENT" class="h-8 lg:h-12 w-auto object-contain">
+                    </a>
+                </div>
+            </div>
+            <div class="md:col-span-3 space-y-2 text-sm text-gray-400">
+                <p class="font-bold text-white text-base tracking-wide">MAKEVENT</p>
+                <p><a href="mailto:info@makevent.fi" class="hover:text-white transition">info@makevent.fi</a></p>
+                <p class="text-xs text-gray-600 pt-4">&copy; 2026 MAKEVENT</p>
+            </div>
+            <div class="md:col-span-2 space-y-3 text-sm text-gray-400">
+                <p class="font-bold text-white text-xs uppercase tracking-wider">Socials</p>
+                <ul class="space-y-2">
+                    <li><a href="https://www.instagram.com/makevent.fi" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">Instagram</a></li>
+                </ul>
+            </div>
+            <div class="md:col-span-2 space-y-3 text-sm text-gray-400">
+                <p class="font-bold text-white text-xs uppercase tracking-wider">Legal</p>
+                <ul class="space-y-2">
+                    <li><a href="/kayttoehdot" class="hover:text-white transition">Käyttöehdot</a></li>
+                    <li><a href="/tietosuoja" class="hover:text-white transition">Tietosuojaseloste</a></li>
+                    <li><a href="/evasteet" class="hover:text-white transition">Evästekäytäntö</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu (full-screen overlay)
+        var mobileMenu = document.getElementById('mobileMenu');
+        if (mobileMenu) {
+            var openMenu = function () { mobileMenu.classList.remove('hidden'); requestAnimationFrame(function () { mobileMenu.classList.add('open'); }); };
+            var closeMenu = function () { mobileMenu.classList.remove('open'); setTimeout(function () { mobileMenu.classList.add('hidden'); }, 250); };
+            document.getElementById('menuBtn').addEventListener('click', openMenu);
+            document.getElementById('menuClose').addEventListener('click', closeMenu);
+            mobileMenu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', closeMenu); });
+        }
+    </script>
+</body>
+</html>

@@ -5,9 +5,8 @@
       "namespace": "android_app",
       "package_name": "fi.makevent.app",
       "sha256_cert_fingerprints": [
-        "REPLACE_WITH_DEBUG_KEYSTORE_SHA256",
-        "REPLACE_WITH_PLAY_APP_SIGNING_SHA256",
-        "REPLACE_WITH_UPLOAD_KEY_SHA256"
+        "D8:90:9E:59:44:C8:63:40:50:A1:37:13:1C:A4:6B:01:CC:BC:B9:61:30:05:23:61:F6:20:F9:8B:BF:F4:8C:90",
+        "72:39:07:B5:76:37:AC:5F:4B:7C:1A:6D:24:14:A3:EA:53:04:33:D7:2B:23:F5:F4:11:9A:58:B2:8D:84:8A:E9"
       ]
     }
   }

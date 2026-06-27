@@ -37,7 +37,16 @@
 
     <main class="relative z-10 w-full max-w-xl mx-auto px-6 flex-grow flex flex-col items-center justify-center text-center gap-6 pb-16">
 
-        <!-- PROMPT (default) — shown only when a token is present. -->
+        <!-- OPENING — hand off to the installed app first (it verifies via the
+             Universal Link or the makevent:// scheme). The page itself does NOT
+             consume the token here, so an email-scanner prefetch stays safe;
+             in-browser verification is the fallback below. -->
+        <div id="opening" class="hidden flex flex-col items-center gap-4">
+            <h1 class="grad-text text-3xl font-extrabold tracking-tight">Avataan sovellusta…</h1>
+            <p class="text-white/70 text-sm max-w-md">Jos sovellus ei avaudu hetkessä, jatka alta.</p>
+        </div>
+
+        <!-- PROMPT (fallback — no app installed) — shown only with a token. -->
         <div id="prompt" class="hidden flex flex-col items-center gap-6">
             <h1 class="grad-text text-4xl sm:text-5xl font-extrabold tracking-tight">Vahvista sähköposti</h1>
             <p class="text-white/80 text-base max-w-md">Viimeistele tilisi vahvistamalla sähköpostiosoitteesi alta.</p>
@@ -88,7 +97,7 @@
         var API = 'https://api.makevent.dev/api/v1/email/verify';
 
         function show(id) {
-            ['prompt', 'working', 'success', 'error'].forEach(function (s) {
+            ['opening', 'prompt', 'working', 'success', 'error'].forEach(function (s) {
                 var el = document.getElementById(s);
                 if (el) el.classList.toggle('hidden', s !== id);
             });
@@ -101,9 +110,18 @@
             document.getElementById('errorMsg').textContent = 'Virheellinen vahvistuslinkki.';
             show('error');
         } else {
-            // IMPORTANT: do nothing automatically — a scanner prefetch must not
-            // consume the token. Wait for the explicit button click.
-            show('prompt');
+            // Hand off to the installed app FIRST — it verifies the token (via the
+            // Universal Link or this scheme), so when iOS also opens the browser
+            // we bounce straight back to the app instead of showing a stale
+            // "already used" error. The page never consumes the token itself, so
+            // an email-scanner prefetch stays safe. No app picks it up → after a
+            // short window we reveal the in-browser button as the fallback.
+            show('opening');
+            window.location.href = 'makevent://verify?token=' + encodeURIComponent(token);
+            setTimeout(function () {
+                // document.hidden → the app took over; leave the browser alone.
+                if (!document.hidden) show('prompt');
+            }, 1800);
             document.getElementById('verifyBtn').addEventListener('click', function () {
                 show('working');
                 fetch(API, {

@@ -55,9 +55,9 @@
         <!-- SUCCESS -->
         <div id="success" class="hidden flex flex-col items-center gap-6">
             <h1 class="grad-text text-4xl sm:text-5xl font-extrabold tracking-tight">Sähköposti vahvistettu</h1>
-            <p class="text-white/80 text-base max-w-md">Voit nyt avata MAKEVENT-sovelluksen ja jatkaa.</p>
-            <a href="https://api.makevent.dev/app"
-                class="rounded-full border border-white/25 px-7 py-3 text-sm font-bold tracking-wide">
+            <p class="text-white/80 text-base max-w-md">Palaa MAKEVENT-sovellukseen jatkaaksesi.</p>
+            <a href="makevent://verified"
+                class="rounded-full bg-[#29A52F] px-7 py-3 text-sm font-extrabold tracking-wide">
                 Avaa sovellus
             </a>
         </div>
@@ -110,6 +110,14 @@
                 }).then(function (res) {
                     if (res.ok) {
                         show('success');
+                        // Bounce back into the app via the custom scheme —
+                        // reliable where Universal Links aren't (in-app
+                        // browsers, dev builds). Brief delay so the success UI
+                        // paints first; the "Avaa sovellus" button is the
+                        // manual fallback.
+                        setTimeout(function () {
+                            window.location.href = 'makevent://verified';
+                        }, 600);
                     } else {
                         show('error');
                     }

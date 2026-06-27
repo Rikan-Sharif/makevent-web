@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<!-- =====================================================================
+     MAKEVENT — email verification landing.
+     This page is the magic-link target (https://makevent.fi/verify-email).
+     When the app is installed the OS opens the APP via Universal/App Links on
+     a user tap and this page is never seen. This is the fallback for when the
+     app is NOT installed (or the link is opened in a browser).
+     SECURITY: it does NOTHING on load — consumption happens only when the user
+     clicks "Vahvista", so an email-scanner prefetch (a bare GET) can't burn the
+     single-use token. The consume is a cross-origin POST to the API.
+     ===================================================================== -->
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vahvista sähköposti — MAKEVENT</title>
+    <meta name="robots" content="noindex">
+    <meta name="theme-color" content="#25193C">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+Semi+Expanded:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="text-white min-h-screen flex flex-col overflow-x-hidden antialiased bg-[#25193C]">
+
+    <div class="bg-glow" aria-hidden="true"></div>
+    <div class="bg-tint" aria-hidden="true"></div>
+
+    <header class="w-full max-w-7xl mx-auto px-5 lg:px-10 pt-6 lg:pt-8 pb-2 relative z-50">
+        <a href="/" class="block select-none w-max mx-auto lg:mx-0">
+            <img src="/Logo.png" alt="MAKEVENT" class="h-7 w-auto object-contain">
+        </a>
+    </header>
+
+    <main class="relative z-10 w-full max-w-xl mx-auto px-6 flex-grow flex flex-col items-center justify-center text-center gap-6 pb-16">
+
+        <!-- PROMPT (default) — shown only when a token is present. -->
+        <div id="prompt" class="hidden flex flex-col items-center gap-6">
+            <h1 class="grad-text text-4xl sm:text-5xl font-extrabold tracking-tight">Vahvista sähköposti</h1>
+            <p class="text-white/80 text-base max-w-md">Viimeistele tilisi vahvistamalla sähköpostiosoitteesi alta.</p>
+            <button id="verifyBtn" type="button"
+                class="cta-glow rounded-full bg-[#29A52F] px-9 py-3.5 text-base font-extrabold tracking-wide">
+                Vahvista sähköposti
+            </button>
+        </div>
+
+        <!-- WORKING -->
+        <div id="working" class="hidden flex flex-col items-center gap-4">
+            <h1 class="grad-text text-3xl font-extrabold tracking-tight">Vahvistetaan…</h1>
+        </div>
+
+        <!-- SUCCESS -->
+        <div id="success" class="hidden flex flex-col items-center gap-6">
+            <h1 class="grad-text text-4xl sm:text-5xl font-extrabold tracking-tight">Sähköposti vahvistettu</h1>
+            <p class="text-white/80 text-base max-w-md">Voit nyt avata MAKEVENT-sovelluksen ja jatkaa.</p>
+            <a href="https://api.makevent.dev/app"
+                class="cta-glow rounded-full border border-white/25 px-7 py-3 text-sm font-bold tracking-wide">
+                Avaa sovellus
+            </a>
+        </div>
+
+        <!-- ERROR (invalid / expired / already used / missing token) -->
+        <div id="error" class="hidden flex flex-col items-center gap-6">
+            <h1 class="grad-text text-4xl sm:text-5xl font-extrabold tracking-tight">Linkki ei kelpaa</h1>
+            <p id="errorMsg" class="text-white/80 text-base max-w-md">
+                Linkki on vanhentunut tai jo käytetty. Avaa sovellus ja lähetä uusi vahvistuslinkki.
+            </p>
+            <a href="https://api.makevent.dev/app"
+                class="cta-glow rounded-full border border-white/25 px-7 py-3 text-sm font-bold tracking-wide">
+                Avaa sovellus
+            </a>
+        </div>
+
+    </main>
+
+    <footer class="w-full pt-8 pb-10 px-10 mt-auto relative z-50 text-center text-xs text-gray-500">
+        <a href="mailto:info@makevent.fi" class="hover:text-white transition">info@makevent.fi</a> &nbsp;·&nbsp; &copy; 2026 MAKEVENT
+    </footer>
+
+    <script>
+        // Backend consume endpoint (separate origin → CORS-allowed there).
+        var API = 'https://api.makevent.dev/api/v1/email/verify';
+
+        function show(id) {
+            ['prompt', 'working', 'success', 'error'].forEach(function (s) {
+                var el = document.getElementById(s);
+                if (el) el.classList.toggle('hidden', s !== id);
+            });
+        }
+
+        var token = new URLSearchParams(location.search).get('token');
+
+        if (!token) {
+            // No token at all → straight to the error state.
+            document.getElementById('errorMsg').textContent = 'Virheellinen vahvistuslinkki.';
+            show('error');
+        } else {
+            // IMPORTANT: do nothing automatically — a scanner prefetch must not
+            // consume the token. Wait for the explicit button click.
+            show('prompt');
+            document.getElementById('verifyBtn').addEventListener('click', function () {
+                show('working');
+                fetch(API, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ token: token })
+                }).then(function (res) {
+                    if (res.ok) {
+                        show('success');
+                    } else {
+                        show('error');
+                    }
+                }).catch(function () {
+                    document.getElementById('errorMsg').textContent =
+                        'Yhteys epäonnistui. Tarkista verkkoyhteytesi ja yritä uudelleen.';
+                    show('error');
+                });
+            });
+        }
+    </script>
+
+</body>
+</html>

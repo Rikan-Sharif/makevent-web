@@ -1,4 +1,13 @@
 {
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "WCGDSN9AGQ.fi.makevent.app",
+        "paths": ["/verify-email", "/verify-email*"]
+      }
+    ]
+  },
   "webcredentials": {
     "apps": ["WCGDSN9AGQ.fi.makevent.app"]
   }

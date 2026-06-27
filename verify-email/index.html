@@ -62,14 +62,17 @@
             </a>
         </div>
 
-        <!-- ERROR (invalid / expired / already used / missing token) -->
+        <!-- ERROR (invalid / expired / already used / missing token).
+             The most common case in practice: the app already consumed the
+             single-use token (Universal Link opened it), so the browser copy is
+             "too late" — reassure rather than alarm, and bounce back to the app. -->
         <div id="error" class="hidden flex flex-col items-center gap-6">
-            <h1 class="grad-text text-4xl sm:text-5xl font-extrabold tracking-tight">Linkki ei kelpaa</h1>
+            <h1 class="grad-text text-4xl sm:text-5xl font-extrabold tracking-tight">Linkki on jo käytetty</h1>
             <p id="errorMsg" class="text-white/80 text-base max-w-md">
-                Linkki on vanhentunut tai jo käytetty. Avaa sovellus ja lähetä uusi vahvistuslinkki.
+                Jos vahvistit sähköpostisi jo sovelluksessa, kaikki on kunnossa — palaa sovellukseen. Muuten linkki on vanhentunut; avaa sovellus ja lähetä uusi vahvistuslinkki.
             </p>
-            <a href="https://api.makevent.dev/app"
-                class="rounded-full border border-white/25 px-7 py-3 text-sm font-bold tracking-wide">
+            <a href="makevent://verified"
+                class="rounded-full bg-[#29A52F] px-7 py-3 text-sm font-extrabold tracking-wide">
                 Avaa sovellus
             </a>
         </div>

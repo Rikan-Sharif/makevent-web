@@ -32,102 +32,355 @@
 
     <main class="w-full max-w-3xl mx-auto px-6 pb-16 flex-grow legal text-[15px] leading-relaxed text-gray-300">
         <h1 class="text-white text-3xl font-extrabold mb-1">Tietosuojaseloste</h1>
-        <p class="text-gray-500 text-sm mb-8">MAKEVENT — versio 1.0 · Voimassa 29.5.2026 alkaen</p>
+        <p class="text-gray-500 text-sm mb-8">MAKEVENT — versio 2.1 · Voimassa 13.10.2026 alkaen</p>
 
-        <h2>1. Rekisterinpitäjä</h2>
+        <h2 id="rekisterinpitaja">1. Rekisterinpitäjä</h2>
+
         <p>MAKEVENT Oy<br>
-        Sompasaarenlaituri 8, 00540 Helsinki<br>
+        Y-tunnus: 3626705-7<br>
+        Hämeentie 124, 00560 Helsinki<br>
         Sähköposti: <a href="mailto:privacy@makevent.fi">privacy@makevent.fi</a></p>
-        <p>Voit ottaa yhteyttä tietosuojaa koskevissa kysymyksissä yllä olevalla sähköpostiosoitteella tai sovelluksen sisäisellä yhteydenottolomakkeella.</p>
 
-        <h2>2. Mitä tietoja keräämme</h2>
-        <h3>Tilin perustiedot (pakolliset rekisteröitymisessä):</h3>
-        <ul>
-            <li>– Käyttäjänimi</li>
-            <li>– Etunimi ja sukunimi</li>
-            <li>– Sähköpostiosoite</li>
-            <li>– Puhelinnumero</li>
-            <li>– Salasana (säilytetään tiivisteenä, ei selväkielisenä)</li>
-        </ul>
-        <h3>Vapaaehtoiset profiilitiedot:</h3>
-        <ul>
-            <li>– Profiilikuva</li>
-            <li>– Ammatti / titteli</li>
-            <li>– Kaupunki</li>
-            <li>– Instagram-, Spotify- ja verkkosivulinkit</li>
-        </ul>
-        <h3>Toiminnasta syntyvät tiedot:</h3>
-        <ul>
-            <li>– Luomasi tapahtumat ja paikkamerkinnät</li>
-            <li>– Lähettämäsi viestit (keskustelujen sisältö)</li>
-            <li>– Tykkäyksesi, seuraamisesi ja kaverisuhteesi</li>
-            <li>– Mihin tapahtumiin olet ilmoittautunut</li>
-            <li>– Estämäsi käyttäjät ja paikat</li>
-        </ul>
-        <h3>Tekniset tiedot:</h3>
-        <ul>
-            <li>– Palvelimien lokitiedot (IP-osoite, päivämäärä, käytetty toiminto) säilytetään 14 päivää ja käytetään vain väärinkäytösten estoon sekä virheiden selvittämiseen.</li>
-        </ul>
-        <h3>Vapaaehtoinen analytiikka (vain suostumuksella):</h3>
-        <ul>
-            <li>– Käyttötilastoja (kuten avatut näkymät, klikatut painikkeet) kerätään vain, jos olet erikseen antanut suostumuksen rekisteröinnin yhteydessä tai myöhemmin asetuksista.</li>
-        </ul>
+        <p>Tämä seloste koskee MAKEVENT-sovellusta, makevent.fi-sivustoa sekä palvelimemme verkkosivuja, kuten jaettujen tapahtuma- ja paikkalinkkien sivuja (yhdessä "Palvelu"). Siinä kerrotaan, mitä henkilötietoja käsittelemme, mihin niitä käytetään, kenelle niitä välittyy ja kuinka kauan niitä säilytetään.</p>
 
-        <h2>3. Mihin tarkoitukseen tietoja käytetään</h2>
+        <p>Tietosuojaa koskevat kysymykset ja pyynnöt voit lähettää osoitteeseen <a href="mailto:privacy@makevent.fi">privacy@makevent.fi</a>.</p>
+
+        <p>Palvelua ei ole tarkoitettu alle 13-vuotiaille. Jos huomaamme, että alle 13-vuotias on luonut tilin, poistamme sen.</p>
+
+        <h2 id="tiedot">2. Mitä tietoja käsittelemme</h2>
+
+        <h3>Tilin tiedot</h3>
+
+        <p>Kun rekisteröidyt sähköpostiosoitteella, pakollisia tietoja ovat etunimi, käyttäjänimi, sähköpostiosoite ja salasana. Sukunimi ja puhelinnumero ovat vapaaehtoisia. Salasanaa ei tallenneta selväkielisenä vaan ainoastaan tiivisteenä (bcrypt).</p>
+
+        <p>Kun kirjaudut Applella tai Googlella, saamme palvelulta pysyvän käyttäjätunnisteen, sähköpostiosoitteen ja nimen, jos se on saatavilla. Applelta saatu sähköpostiosoite voi olla Applen välitysosoite. Emme saa salasanaasi emmekä käytä Googlen profiilikuvaa. Jos palvelun vahvistama sähköpostiosoite on jo jonkin MAKEVENT-tilin osoite, kirjautumistapa liitetään siihen tiliin.</p>
+
+        <p>Tiliin tallennetaan lisäksi sen luontiaika, tieto sähköpostiosoitteen vahvistamisesta, tilin palvelutaso (maksuton tai maksullinen), hyväksymiesi käyttöehtojen versio ja hyväksymisaika, viimeksi hyväksymäsi tai sovelluksessa luetuksi kuittaamasi tietosuojaselosteen versio ja ajankohta sekä käyttöanalytiikkaa koskeva valintasi ja aika, jolloin annoit suostumuksen.</p>
+
+        <h3>Profiilitiedot (vapaaehtoiset)</h3>
+
+        <p>Profiilikuva, ammatti tai titteli, kaupunki, lyhyt esittelyteksti sekä Instagram-, Spotify- ja verkkosivulinkit.</p>
+
+        <h3>Palvelussa syntyvät tiedot</h3>
+
         <ul>
-            <li>(a) Palvelun toimittaminen (sopimukseen perustuva käsittely, GDPR 6 art. 1(b)): käyttäjätilin ylläpito, viestien välitys, tapahtumailmoitukset, tunnistautuminen.</li>
-            <li>(b) Lakisääteisten velvoitteiden täyttäminen (GDPR 6 art. 1(c)): esim. viranomaispyyntöihin vastaaminen.</li>
-            <li>(c) Palvelun parantaminen ja oikeutettu etu (GDPR 6 art. 1(f)): tietoturvan ylläpito, väärinkäytösten esto, virhetilanteiden selvittäminen.</li>
-            <li>(d) Suostumukseen perustuva käyttötilastointi (GDPR 6 art. 1(a)): vain jos olet antanut suostumuksen. Voit perua sen milloin tahansa asetuksista.</li>
+            <li>– luomasi tapahtumat (esimerkiksi nimi, kuvaus, aika, osoite ja sijainti, kuvat, onko tapahtuma julkinen vai yksityinen sekä kutsutut) sekä tapahtumaluonnokset</li>
+            <li>– lähettämäsi viestit ja liitteet sekä keskustelut, joihin kuulut (rooli, liittymisaika, viimeksi luettu viesti ja mykistys)</li>
+            <li>– tykkäykset, seuraamasi paikat ja käyttäjät, kaveruudet ja kaveripyynnöt sekä tapahtuma- ja keskustelukutsut vastauksineen</li>
+            <li>– estämäsi käyttäjät ja paikat sekä mykistämäsi paikat</li>
+            <li>– sovelluksen sinulle näyttämät ilmoitukset</li>
+            <li>– tekemäsi ilmoitukset asiattomasta sisällöstä sekä muiden käyttäjien sinusta tai viesteistäsi tekemät ilmoitukset</li>
+            <li>– sovelluksessa lähettämäsi palaute ja yhteydenotot</li>
+            <li>– Luvat ja ilmoitukset -lomakkeisiin tallentamasi tiedot, kuten pelastussuunnitelma liitteineen. Lomakkeissa voi olla sinun ja muiden henkilöiden (esimerkiksi turvallisuus- tai ensiapuvastaavan) nimiä, puhelinnumeroita ja sähköpostiosoitteita, ja alueen käyttölupaa koskevassa lomakkeessa Y-tunnus tai henkilötunnus.</li>
         </ul>
 
-        <h2>4. Tietojen luovuttaminen</h2>
-        <p>Emme luovuta henkilötietojasi kolmansille osapuolille markkinointiin tai muuhun ei-toiminnalliseen käyttöön. Tietoja luovutetaan vain:</p>
-        <ul>
-            <li>– Palvelun teknisille alihankkijoille (palvelimet, sähköposti) kirjallisten tietojenkäsittelysopimusten mukaisesti. Pääasiallinen palvelinhotelli on Hetzner Online GmbH (Saksa).</li>
-            <li>– Viranomaisille lain niin vaatiessa.</li>
-        </ul>
-        <p>Emme siirrä tietoja EU/ETA-alueen ulkopuolelle.</p>
+        <p>Jos edustat paikkaa yritystilillä, käsittelemme lisäksi paikan tietoja, paikkaan liitettyjä työntekijätilejä ja viestejä, jotka paikka lähettää seuraajilleen.</p>
 
-        <h2>5. Tietojen säilytys</h2>
-        <p>Säilytämme tietojasi niin kauan kuin tilisi on aktiivinen tai niin kauan kuin se on tarpeen Palvelun tarjoamiseksi. Tilin poistamisen jälkeen:</p>
-        <ul>
-            <li>– Henkilökohtaiset tunnistetiedot (nimi, sähköposti, puhelin, profiilikuva) anonymisoidaan välittömästi.</li>
-            <li>– Lähettämäsi viestit ja luomasi tapahtumat säilyvät, mutta lähettäjäksi/järjestäjäksi merkitään "Poistettu käyttäjä".</li>
-            <li>– Palvelimien lokitiedot poistuvat normaalin retentiokierron mukaan (14 päivää).</li>
-        </ul>
-        <p>Tämä poikkeaa GDPR:n täydellisestä unohtamisoikeudesta — perusteena on muiden käyttäjien luoman sisällön eheys (GDPR 17 art. 3(a)).</p>
+        <h3>Sijainti</h3>
 
-        <h2>6. Oikeutesi</h2>
-        <p>Sinulla on EU:n tietosuoja-asetuksen (GDPR) nojalla oikeus:</p>
+        <p>Sovellus kysyy lupaa sijainnin käyttöön ensimmäisellä käynnistyskerralla. Jos sallit sen, sovellus lukee laitteesi sijainnin silloin, kun sovellus on käytössä. Taustalla sijaintia ei käytetä. Sijainnin avulla näytämme etäisyyksiä ja painotamme syötteessä lähellä olevia tapahtumia ja paikkoja.</p>
+
         <ul>
-            <li>– Tarkastaa sinusta tallennetut tiedot (Art. 15). Pyyntö sovelluksen sisältä: Tilin hallinta → Omat tiedot → Lataa tiedot.</li>
-            <li>– Vaatia virheellisten tietojen korjaamista (Art. 16). Voit muokata profiilitietojasi sovelluksen sisältä.</li>
-            <li>– Vaatia tietojen poistamista (Art. 17). Sovelluksen sisältä: Tilin hallinta → Omat tiedot → Poista tili pysyvästi. Huom: muiden käyttäjien rakentamat keskustelut säilyvät, ks. §5.</li>
-            <li>– Vastustaa käsittelyä tai rajoittaa sitä (Art. 18, 21).</li>
-            <li>– Saada tiedot koneluettavassa muodossa (Art. 20). Sovelluksen sisältä: Tilin hallinta → Omat tiedot → Lataa tiedot (JSON-muodossa).</li>
-            <li>– Peruuttaa antamasi suostumus (Art. 7) milloin tahansa.</li>
-            <li>– Tehdä valitus tietosuojavaltuutetun toimistoon, jos koet, että käsittelemme tietojasi virheellisesti: <a href="https://tietosuoja.fi/yhteystiedot" target="_blank" rel="noopener noreferrer">https://tietosuoja.fi/yhteystiedot</a></li>
+            <li>– Etäisyydet lasketaan enimmäkseen laitteellasi.</li>
+            <li>– Kun etusivun syöte haetaan, koordinaatit lähetetään palvelimellemme sillä tarkkuudella, jonka laite antaa. Palvelin käyttää niitä vain syötteen järjestämiseen eikä tallenna niitä tietokantaan. Pyynnön osoite koordinaatteineen tallentuu kuitenkin palvelimen lokiin yhdessä IP-osoitteesi kanssa (katso <a href="#palvelinlokit">Palvelinlokit</a>).</li>
+            <li>– Kartta keskitetään sijaintiisi, joten karttapalvelu Mapbox saa tiedon alueesta, jonka karttaa katsot (katso <a href="#vastaanottajat">kohta 4</a>).</li>
+            <li>– Sijaintia ei liitetä käyttötilastoihin eikä virheraportteihin.</li>
         </ul>
 
-        <h2>7. Tietoturva</h2>
-        <p>Suojaamme tietosi asianmukaisilla teknisillä ja organisatorisilla toimenpiteillä:</p>
+        <p>Voit perua sijaintiluvan tai sallia vain likimääräisen sijainnin laitteen asetuksista. Ilman sijaintia syöte järjestetään Helsingin keskustan mukaan.</p>
+
+        <h3>Yhteystiedot ja kaverihaku</h3>
+
+        <p>Sovellus kysyy lupaa yhteystietoihisi, kun avaat keskustelut ensimmäisen kerran kirjautuneena. Jos annat luvan, sovellus lukee laitteesi osoitekirjan ja lähettää palvelimellemme kaikkien yhteystietojesi puhelinnumerot (suomalaiset numerot kahdessa eri muodossa). Palvelin vertaa niitä käyttäjien puhelinnumeroihin, jotta näet, ketkä tuntemistasi ihmisistä käyttävät MAKEVENTia.</p>
+
         <ul>
-            <li>– Salasanat tallennetaan vain tiivisteinä (bcrypt).</li>
-            <li>– Tiedonsiirto sovelluksen ja palvelimen välillä on salattu (TLS).</li>
-            <li>– Palvelinten pääsy on rajoitettu nimettyihin tunnuksiin ja SSH-avaimiin.</li>
-            <li>– Säännölliset varmuuskopiot ja päivitykset.</li>
+            <li>– Numerot lähetetään aina, kun avaat näkymän, jossa kavereita ehdotetaan, kuten Kaverit ovat myös MAKEVENTissa, uuden viestin tai keskustelun aloittaminen, profiilin Fanitetut &amp; ystävät ja kavereiden kutsuminen tapahtumaan. Osassa näistä näkymistä numerot lähetetään myös, kun palaat sovellukseen.</li>
+            <li>– Yhteystietojen nimet ja kuvat eivät lähde laitteeltasi.</li>
+            <li>– Palvelin käyttää numeroita vain vertailuun eikä tallenna niitä.</li>
+            <li>– Jos annat iPhonessa pääsyn vain osaan yhteystiedoista, vain niiden numerot lähetetään.</li>
         </ul>
-        <p>Tietoturvaloukkauksen sattuessa ilmoitamme asiasta tietosuojavaltuutetulle 72 tunnin sisällä havaitsemisesta ja vahingon kärsineille käyttäjille ilman aiheetonta viivytystä.</p>
 
-        <h2>8. Lapset</h2>
-        <p>Palvelua eivät ole tarkoitettu alle 13-vuotiaille. Emme tietoisesti kerää tietoja alle 13-vuotiailta. Jos havaitsemme, että lapsi on rekisteröitynyt, poistamme tilin.</p>
+        <p>Voit myös etsiä käyttäjää kirjoittamalla yksittäisen puhelinnumeron.</p>
 
-        <h2>9. Selosteen muutokset</h2>
-        <p>Voimme päivittää tätä selostetta tarpeen mukaan. Olennaisista muutoksista ilmoitetaan sovelluksen kautta ja pyydämme tarvittaessa uuden suostumuksen.</p>
+        <p>Jos tilillesi on tallennettu puhelinnumero, muut käyttäjät, joiden osoitekirjassa numerosi on tai jotka kirjoittavat sen, voivat löytää profiilisi. Puhelinnumeron poistaminen ei tällä hetkellä onnistu sovelluksessa, mutta poistamme sen pyynnöstä (<a href="mailto:privacy@makevent.fi">privacy@makevent.fi</a>).</p>
 
-        <h2>10. Yhteystiedot</h2>
-        <p><a href="mailto:privacy@makevent.fi">privacy@makevent.fi</a></p>
+        <h3>Puhelinnumerokutsut</h3>
+
+        <p>Kun kutsut tapahtumaan henkilön, joka ei vielä käytä MAKEVENTia, tallennamme hänen puhelinnumeronsa tapahtuman ja sinun käyttäjätunnisteesi yhteyteen. MAKEVENT ei lähetä kutsutulle mitään: sovellus avaa tekstiviestisovelluksesi valmiilla viestillä, jonka lähetät itse.</p>
+
+        <p>Kun joku rekisteröityy sähköpostiosoitteella ja ilmoittaa saman puhelinnumeron, hän saa odottavat kutsut automaattisesti ja hänet lisätään tapahtumien keskusteluihin. Jos sinut on kutsuttu puhelinnumerollasi ja haluat numerosi poistettavan, ota yhteyttä osoitteeseen <a href="mailto:privacy@makevent.fi">privacy@makevent.fi</a>.</p>
+
+        <h3>Kuvat, videot ja tiedostot</h3>
+
+        <p>Voit lisätä kuvia profiiliin, tapahtumiin, paikkoihin ja keskusteluihin sekä lähettää keskusteluissa videoita ja muita tiedostoja (enintään 50 Mt). Sovellus ei käytä kameraa, vaan kuvat valitaan laitteen kuvavalitsimella. Tiedostot tallennetaan palvelimellemme.</p>
+
+        <ul>
+            <li>– Kaikki palvelimelle ladatut tiedostot avautuvat suoralla linkillä ilman kirjautumista. Profiilikuvat ja julkisten tapahtumien kuvat näkyvät kaikille. Keskusteluihin lähetetyt tiedostot tallennetaan satunnaiseen, vaikeasti arvattavaan osoitteeseen, mutta kuka tahansa, jolla on linkki, voi avata tiedoston.</li>
+            <li>– Keskusteluun lähetetty kuva tai video tallennetaan sellaisenaan. Jos tiedostossa on metatietoja, kuten kuvauspaikan sijainti, ne voivat tallentua mukana. Poista sijaintitieto ennen lähettämistä, jos et halua jakaa sitä.</li>
+            <li>– Sovelluksessa rajattavista kuvista, kuten profiilikuvasta, metatiedot poistuvat iPhonessa rajauksen yhteydessä. Android-laitteilla sijaintitieto voi säilyä.</li>
+            <li>– Kun tallennat kuvan tai videon keskustelusta, se tallentuu vain omaan laitteeseesi.</li>
+        </ul>
+
+        <h3>Push-ilmoitukset</h3>
+
+        <p>Kun olet kirjautunut eikä ilmoituksia ole estetty laitteen asetuksista, tallennamme laitteesi ilmoitustunnisteen, käyttöjärjestelmän (iOS tai Android) ja tiedon siitä, mihin tiliin tunniste kuuluu.</p>
+
+        <p>Ilmoitukset välitetään Googlen Firebase Cloud Messaging -palvelun kautta ja iPhoneen lisäksi Applen ilmoituspalvelun kautta. Ilmoitus sisältää siinä näkyvän tekstin. Keskusteluviestin ilmoituksessa on viestin koko teksti, lähettäjän käyttäjänimi tai keskustelun nimi ja lähettäjän profiilikuvan osoite. Muissa ilmoituksissa on esimerkiksi tapahtuman tai paikan nimi. Ilmoituspalvelu voi luoda laitteelle tunnisteen jo sovelluksen käynnistyessä ennen kirjautumista. Emme käytä Firebasen analytiikka- tai mainostoimintoja.</p>
+
+        <h3>Laitteelle tallennettavat tiedot</h3>
+
+        <p>Sovellus tallentaa laitteesi suojattuun tallennustilaan enintään viiden tilin kirjautumistiedot (kirjautumistunniste, käyttäjätunniste, käyttäjänimi, nimi, sähköpostiosoite, profiilikuvan osoite ja analytiikkavalinta). Lisäksi laitteelle tallennetaan käyttötilastojen asetus ja asennustunniste, tieto siitä, onko yhteystietolupaa jo kysytty, sekä kuvien ja karttojen välimuisti. Ladattu tietokopio tallennetaan laitteelle väliaikaisesti ennen jakamista. Sovellus ei käytä evästeitä eikä mainostunnisteita.</p>
+
+        <p>Jos laitteen varmuuskopiointi on päällä, laite voi sisällyttää sovelluksen tiedot, kuten asennustunnisteen, varmuuskopioonsa (Androidissa Google-tilillesi, iPhonessa iCloudiin). Varmuuskopiosta palautettu sovellus jatkaa samalla asennustunnisteella.</p>
+
+        <h3 id="kayttotilastot">Käyttötilastot</h3>
+
+        <p>Sovellus luo ensimmäisellä käynnistyskerralla satunnaisen asennustunnisteen. Se säilyy sovelluksen päivityksissä ja vaihtuu, kun sovelluksen tiedot tyhjennetään tai sovellus poistetaan. Android-laitteessa laitteen varmuuskopio voi kuitenkin palauttaa saman tunnisteen, kun sovellus asennetaan uudelleen.</p>
+
+        <p>Ellet kytke käyttötilastoja pois (katso alla), sovellus lähettää palvelimellemme käyttötapahtumia, myös ennen kirjautumista ja silloin, kun et ole antanut analytiikkasuostumusta. Jokaisessa käyttötapahtumassa on:</p>
+
+        <ul>
+            <li>– asennustunniste ja aika</li>
+            <li>– toiminto, esimerkiksi sovelluksen avaaminen, välilehden vaihto, tapahtuman tai paikan avaaminen, haku, kategorian valinta, tykkäys, paikan seuraaminen, jakaminen, kaveripyynnön lähettäminen tai hyväksyminen, viestin lähettäminen, tapahtuman luominen, kirjautuminen tai rekisteröityminen</li>
+            <li>– kohteen tyyppi ja tunniste, esimerkiksi avatun tapahtuman tai paikan tunniste. Kaveripyynnössä kohteena on toisen käyttäjän tunniste ja tapahtumaa luotaessa luomasi tapahtuman tunniste.</li>
+            <li>– taustatiedot: alusta (iOS tai Android), mistä sovellus on asennettu (esimerkiksi App Store, TestFlight tai Google Play), tilin tyyppi (tavallinen tai yritys) sekä toimintoon liittyviä lisätietoja, kuten valittu kategoria, kirjautumistapa, hakusanan pituus tai epäonnistumisen syy.</li>
+        </ul>
+
+        <p>Käyttötapahtumiin ei tallenneta viestien sisältöä, hakusanoja, sijaintia, nimeäsi eikä sähköpostiosoitettasi. Palvelin ei tallenna IP-osoitettasi sellaisenaan, vaan siitä salaisella avaimella lasketun tiivisteen. Tiiviste ei ole anonyymi tieto, koska avaimen haltija voi periaatteessa selvittää siitä IP-osoitteen.</p>
+
+        <p>Ilman suostumusta käyttötapahtumia ei liitetä tiliisi. Koska osa niistä sisältää esimerkiksi luomasi tapahtuman tunnisteen, ne voidaan silti yhdistää sinuun, joten käsittelemme niitä henkilötietoina.</p>
+
+        <p>Käyttöanalytiikka-suostumus: Jos annat suostumuksen rekisteröityessäsi tai myöhemmin asetuksista, käyttötapahtumiin liitetään myös käyttäjätunnisteesi, jolloin näemme käytön tilikohtaisesti. Suostumus ei siis lisää kerättäviä tapahtumia vaan liittää ne tiliisi. Voit perua suostumuksen milloin tahansa kohdassa Profiili → valikko (kolme pistettä) → Käyttöanalytiikka. Perumisen jälkeen uusia tapahtumia ei liitetä tiliisi. Aiemmin liitetyt tapahtumat säilyvät <a href="#sailytysajat">kohdassa 6</a> kerrotun ajan tai kunnes poistat tilisi, ja voit pyytää niiden poistamista.</p>
+
+        <p>Käyttötilastojen kytkeminen pois: Voit kytkeä käyttötilastot pois sovelluksen asetuksista kohdassa Profiili → valikko (kolme pistettä) → Lähetä anonyymejä käyttötilastoja. Voit myös vastustaa niiden keräämistä lähettämällä sähköpostia osoitteeseen <a href="mailto:privacy@makevent.fi">privacy@makevent.fi</a>. Kun kytket käyttötilastot pois, sovellus lopettaa käyttötapahtumien lähettämisen ja poistaa satunnaisen asennustunnisteen laitteeltasi. Virheraportteja lähetetään edelleen, mutta ilman asennustunnistetta. Jo lähetetyt käyttötapahtumat säilyvät <a href="#sailytysajat">kohdassa 6</a> kerrotun ajan. Jos kytket käyttötilastot myöhemmin takaisin päälle, sovellus luo uuden asennustunnisteen.</p>
+
+        <p>Emme käytä ulkopuolisia analytiikka- tai mainospalveluita.</p>
+
+        <h3>Virheraportit</h3>
+
+        <p>Kun sovelluksessa tapahtuu virhe, julkaistu sovellusversio lähettää siitä raportin palvelimellemme kirjautumisesta ja suostumuksesta riippumatta. Raportissa on asennustunniste (sama kuin käyttötilastoissa), alusta, sovelluksen versio, virheen lähde ja viesti, tekninen virhejäljitys, näkymä, jossa virhe tapahtui (ilman tunnisteita), palvelinpyynnön tyyppi ja vastauksen tila, tieto siitä, kaatuiko sovellus, toistojen määrä ja aika. Jos olet kytkenyt käyttötilastot pois, raportissa ei ole asennustunnistetta. Ennen tallentamista raportin teksteistä poistetaan osoitteiden parametrit (kuten sijaintikoordinaatit), tunnisteet (kuten käyttäjän, tapahtuman tai keskustelun tunniste) sekä sähköpostiosoitteet ja puhelinnumerot. Raporttiin ei liitetä käyttäjätunnistettasi, eikä IP-osoitettasi tallenneta sen yhteyteen. Jos olet antanut analytiikkasuostumuksen, virheraportit voidaan kuitenkin yhdistää tiliisi saman asennustunnisteen kautta. Raportit tallennetaan omalle palvelimellemme, emmekä käytä ulkopuolista virheraportointipalvelua.</p>
+
+        <h3 id="palvelinlokit">Palvelinlokit</h3>
+
+        <p>Palvelimemme kirjaa lokiin jokaisesta sille tulevasta pyynnöstä (sovellus, jaettujen tapahtuma- ja paikkalinkkien sivut, LATAA SOVELLUS -linkki, käyttöehtojen ja tietosuojaselosteen verkkosivut sekä makevent.fi-sivuston yhteydenottolomake ja sähköpostiosoitteen vahvistus) IP-osoitteen, ajan, pyynnön tyypin ja koko osoitteen parametreineen (esimerkiksi syötteen sijaintikoordinaatit ja hakusanat), sovelluksen tai selaimen tunnistetiedot (User-Agent, josta näkyy esimerkiksi laitetyyppi) sekä vastauksen tilan, koon ja keston. Osoitteessa voi näkyä käyttäjän, tapahtuman tai keskustelun tunniste. Lisäksi palvelin kirjaa epäonnistuneet pyynnöt (osoite ilman parametreja, tila ja virheen syy) ja joissakin virhetilanteissa sähköpostiosoitteen, esimerkiksi jos vahvistusviestin lähettäminen epäonnistuu. Tietokannan lokiin voi kirjautua käyttäjänimi, sähköpostiosoite tai puhelinnumero, kun rekisteröityessä tai tilin tietoja muutettaessa annettu tieto on jo toisen tilin käytössä.</p>
+
+        <p>Kun avaat tapahtuman lippulinkin, pyyntö kulkee palvelimemme kautta. Klikkauksesta tallennetaan tietokantaan vain tapahtuma, linkin tyyppi ja aika.</p>
+
+        <h3>Sähköposti ja yhteydenotot</h3>
+
+        <p>Kun rekisteröidyt sähköpostiosoitteella, lähetämme sinulle vahvistuslinkin, ja kun pyydät salasanan vaihtoa, lähetämme vaihtokoodin. Linkit ja koodit tallennetaan vain tiivisteinä. Kun lähetät meille sähköpostia tai käytät makevent.fi-sivuston yhteydenottolomaketta, käsittelemme viestisi ja yhteystietosi. Lomakkeen viestiä ei tallenneta tietokantaan, vaan se välitetään sähköpostina osoitteeseen <a href="mailto:info@makevent.fi">info@makevent.fi</a>.</p>
+
+        <h3>Muualta saatavat tiedot</h3>
+
+        <p>Saamme sinua koskevia tietoja myös:</p>
+
+        <ul>
+            <li>– Applelta tai Googlelta, kun kirjaudut niiden kautta</li>
+            <li>– muilta käyttäjiltä, esimerkiksi kun joku lähettää sinulle kaveripyynnön tai viestin, kutsuu sinut tapahtumaan puhelinnumerollasi tai ilmoittaa sisällöstäsi, tai kun puhelinnumerosi on hänen osoitekirjassaan</li>
+            <li>– julkisista lähteistä (katso alla).</li>
+        </ul>
+
+        <h3>Paikkojen ja tapahtumien julkiset tiedot</h3>
+
+        <p>Keräämme paikkojen ja tapahtumien tietoja, kuten nimiä, osoitteita, aukioloaikoja, yhteystietoja, kuvia ja tapahtumakuvauksia, paikkojen omilta verkkosivuilta ja avoimista lähteistä, kuten Helsingin kaupungin rajapinnoista. Jos paikan julkisissa yhteystiedoissa on henkilön nimi, sähköpostiosoite tai puhelinnumero, käytämme niitä paikan tietojen näyttämiseen ja yhteydenottoon paikkaan.</p>
+
+        <h2 id="kayttotarkoitukset">3. Käyttötarkoitukset ja oikeusperusteet</h2>
+
+        <p>Käsittelemme tietoja vain alla kerrottuihin tarkoituksiin. Emme myy tietojasi, emme käytä niitä mainontaan emmekä tee sinusta yksinomaan automaattiseen käsittelyyn perustuvia päätöksiä, joilla olisi sinuun oikeusvaikutuksia.</p>
+
+        <h3>Sopimus (GDPR 6 art. 1 b)</h3>
+
+        <p>Palvelun tarjoaminen käyttöehtojen mukaisesti:</p>
+
+        <ul>
+            <li>– tilin luominen ja ylläpito, kirjautuminen (myös Applella ja Googlella), sähköpostiosoitteen vahvistaminen ja salasanan vaihtaminen</li>
+            <li>– profiili, tapahtumat, keskustelut, kaveruudet, seuraamiset, kutsut ja sovelluksen ilmoitukset</li>
+            <li>– push-ilmoitusten lähettäminen</li>
+            <li>– osoitehaku tapahtumaa luotaessa</li>
+            <li>– Luvat ja ilmoitukset -lomakkeiden tallentaminen</li>
+            <li>– yritystilien toiminnot, kuten paikan tietojen muokkaaminen ja viestit seuraajille</li>
+        </ul>
+
+        <h3>Oikeutettu etu (GDPR 6 art. 1 f)</h3>
+
+        <ul>
+            <li>– Laitekohtaiset käyttötilastot ja virheraportit: Palvelun kehittäminen ja virheiden korjaaminen. Haluamme tietää, mitä ominaisuuksia käytetään ja mikä ei toimi. Arvioimme, että käsittely ei ylitä etujasi, koska tapahtumia ei liitetä tiliisi, IP-osoitetta ei tallenneta sellaisenaan eikä viestien tai hakujen sisältöä kerätä. Voit kytkeä käyttötilastot pois tai vastustaa käsittelyä (katso <a href="#oikeutesi">kohta 7</a>).</li>
+            <li>– Palvelinlokit: tietoturva, väärinkäytösten estäminen ja selvittäminen, vianetsintä sekä koosteiset tilastot Palvelun toiminnasta (esimerkiksi kuinka usein haku ei löydä mitään).</li>
+            <li>– Moderointi ja turvallisuus: julkaistavan sisällön automaattinen tarkistus sanalistan avulla, ilmoitusten käsittely, estot ja ylläpidon toimintaloki.</li>
+            <li>– Kaverihaku ja puhelinnumerokutsut niiden henkilöiden osalta, jotka eivät käytä MAKEVENTia: käyttäjien etu löytää tuttunsa ja kutsua heidät tapahtumiin. Kaverihaussa numeroita ei tallenneta.</li>
+            <li>– Viestien ja tapahtumien säilyttäminen tilin poiston jälkeen: muiden käyttäjien keskustelujen ja tapahtumien säilyminen ehjinä.</li>
+            <li>– Paikkojen julkiset tiedot ja yhteydenotot paikkoihin: Palvelun sisällön tuottaminen.</li>
+            <li>– Palautteen ja yhteydenottojen käsittely sekä varmuuskopiot tietojen palauttamiseksi vikatilanteissa.</li>
+        </ul>
+
+        <h3>Suostumus (GDPR 6 art. 1 a)</h3>
+
+        <ul>
+            <li>– Käyttötapahtumien liittäminen tiliisi (Käyttöanalytiikka).</li>
+            <li>– Laitteen sijainnin käyttö etäisyyksien näyttämiseen ja syötteen järjestämiseen. Suostumus annetaan ja perutaan laitteen sijaintiluvalla.</li>
+            <li>– Osoitekirjan lukeminen kaverihakua varten. Suostumus annetaan ja perutaan laitteen yhteystietoluvalla.</li>
+        </ul>
+
+        <p>Voit perua suostumuksen milloin tahansa. Peruminen ei vaikuta sitä ennen tehdyn käsittelyn lainmukaisuuteen.</p>
+
+        <h3>Lakisääteinen velvoite (GDPR 6 art. 1 c)</h3>
+
+        <p>Viranomaisten lakiin perustuviin tietopyyntöihin vastaaminen, tietosuojaoikeuksiesi toteuttaminen ja tietoturvaloukkausten käsittely.</p>
+
+        <h2 id="vastaanottajat">4. Vastaanottajat ja käsittelijät</h2>
+
+        <p>Emme myy tietojasi emmekä luovuta niitä markkinointiin. Tietoja näkyy tai välittyy seuraaville.</p>
+
+        <h3>Muut käyttäjät</h3>
+
+        <ul>
+            <li>– Profiilisi (käyttäjänimi, nimi, profiilikuva, ammatti, kaupunki, esittelyteksti ja linkit) näkyy muille käyttäjille.</li>
+            <li>– Profiilissasi näkyvät kaikille käyttäjille tykkäämäsi menneet tapahtumat ja seuraamasi paikat. Kaverisi näkevät lisäksi tykkäämäsi tulevat tapahtumat ja luomasi tapahtumat. Tykkäämäsi yksityiset tapahtumat näkyvät vain niille, joilla on pääsy tapahtumaan.</li>
+            <li>– Tykkäämäsi julkiset tapahtumat (myös tulevat) ja seuraamasi paikat voi hakea Palvelun rajapinnasta ilman kirjautumista.</li>
+            <li>– Seuraamasi paikan omistaja näkee sinut paikan seuraajien listassa.</li>
+            <li>– Tapahtuman järjestäjä näkee tapahtumaan kutsutut, heidän vastauksensa ja sen, onko kutsuttu jo avannut kutsuilmoituksen.</li>
+            <li>– Viestisi ja liitteesi näkyvät keskustelun jäsenille.</li>
+            <li>– Julkiset tapahtumat näkyvät kaikille, yksityiset tapahtumat vain kutsutuille.</li>
+            <li>– Seuraamasi paikan omistaja voi lähettää sinulle viestejä MAKEVENTin kautta. Voit mykistää tai estää paikan.</li>
+        </ul>
+
+        <h3>MAKEVENTin ylläpito</h3>
+
+        <p>Ylläpitäjämme käsittelevät tietoja moderointia, käyttäjätukea ja Palvelun ylläpitoa varten. Ylläpidon toimenpiteet kirjataan toimintalokiin.</p>
+
+        <h3>Palveluntarjoajat</h3>
+
+        <ul>
+            <li>– Hetzner Online GmbH (Saksa): palvelin ja varmuuskopiot. Palvelin ja varmuuskopiot sijaitsevat Helsingissä, Suomessa, ja niissä ovat kaikki Palvelun tiedot.</li>
+            <li>– Resend (Yhdysvallat): sähköpostien lähettäminen (vahvistuslinkit, salasanan vaihtokoodit ja yhteydenottolomakkeen viestit). Resend käsittelee vastaanottajan osoitetta ja viestin sisältöä.</li>
+            <li>– Zoho Mail (EU): sähköpostilaatikkomme, joihin tulevat osoitteisiin <a href="mailto:info@makevent.fi">info@makevent.fi</a>, <a href="mailto:privacy@makevent.fi">privacy@makevent.fi</a> ja <a href="mailto:legal@makevent.fi">legal@makevent.fi</a> lähetetyt viestit.</li>
+            <li>– Google: push-ilmoitusten välitys sisältöineen (Firebase Cloud Messaging), Google-kirjautuminen ja Google Play.</li>
+            <li>– Apple: push-ilmoitusten välitys iPhoneen sisältöineen, Applella kirjautuminen ja App Store.</li>
+            <li>– Mapbox (Yhdysvallat): karttaruudut. Mapbox saa laitteesi IP-osoitteen, sovelluksen tunnistetiedot ja tiedon katsomastasi kartta-alueesta. Sijaintiasi ei lähetetä Mapboxille, mutta koska kartta keskitetään sijaintiisi, ladatuista karttaruuduista näkyy likimääräinen alueesi.</li>
+            <li>– Digitransit (Suomi): osoite-ehdotukset tapahtumaa luotaessa. Palvelu saa kirjoittamasi tekstin (vähintään kolme merkkiä) ja IP-osoitteesi, ei sijaintiasi.</li>
+            <li>– OpenStreetMap Foundation (Nominatim, Iso-Britannia): ylläpitäjämme voivat hakea tapahtuman osoitteelle koordinaatit, jolloin osoite lähetetään palveluun.</li>
+            <li>– Ulkoiset kuvapalvelimet: osa tapahtumien ja paikkojen kuvista ladataan suoraan alkuperäiseltä julkaisijalta, kuten Helsingin kaupungin tai paikan omalta palvelimelta, ja maiden liput (esimerkiksi jalkapallon MM-otteluissa) palvelusta flagcdn.com. Kuvan palvelin näkee laitteesi IP-osoitteen.</li>
+            <li>– makevent.fi-sivusto: sivusto toimii GitHub Pages -palvelussa (GitHub, Yhdysvallat), ja sivut lataavat fontit Google Fontsista, tyylikirjaston Tailwindin jakelupalvelusta sekä sovelluskauppojen merkit Applen ja Wikimedian palvelimilta. Nämä palvelut näkevät kävijän IP-osoitteen. Sivusto ei käytä evästeitä eikä analytiikkaa.</li>
+        </ul>
+
+        <p>Apple ja Google toimivat kirjautumis- ja sovelluskauppapalveluissaan itsenäisinä rekisterinpitäjinä omien tietosuojaselosteidensa mukaisesti.</p>
+
+        <p>Kerätessämme tapahtumatietoja julkisilta verkkosivuilta käytämme myös muita palveluita, kuten Anthropicin tekoälypalvelua. Niille ei välitetä käyttäjiemme tietoja.</p>
+
+        <h3>Viranomaiset</h3>
+
+        <p>Luovutamme tietoja viranomaisille vain silloin, kun laki sitä edellyttää.</p>
+
+        <h2 id="siirrot">5. Siirrot EU/ETA-alueen ulkopuolelle</h2>
+
+        <p>Palvelun tietokanta, tiedostot, lokit ja varmuuskopiot sijaitsevat Suomessa. Seuraavissa tapauksissa tietoja käsitellään myös EU/ETA-alueen ulkopuolella, pääasiassa Yhdysvalloissa:</p>
+
+        <ul>
+            <li>– Google ja Apple: push-ilmoitukset sisältöineen (myös keskusteluviestien teksti) ja ilmoitustunnisteet, Apple- ja Google-kirjautuminen sekä sovelluskaupat.</li>
+            <li>– Mapbox: IP-osoite, sovelluksen tunnistetiedot ja katsottu kartta-alue.</li>
+            <li>– Resend: vastaanottajan sähköpostiosoite ja sähköpostien sisältö.</li>
+            <li>– GitHub, Google Fonts, Tailwindin jakelupalvelu, Apple ja Wikimedia: makevent.fi-sivuston kävijän IP-osoite.</li>
+            <li>– Ulkoiset kuvapalvelimet voivat sijaita EU/ETA-alueen ulkopuolella.</li>
+            <li>– OpenStreetMap Foundation sijaitsee Iso-Britanniassa, jonka tietosuojan tason Euroopan komissio on todennut riittäväksi.</li>
+        </ul>
+
+        <p>Yhdysvaltoihin tehtävät siirrot perustuvat EU:n ja Yhdysvaltojen väliseen tietosuojakehykseen (EU–U.S. Data Privacy Framework) niiden yritysten osalta, jotka ovat sitoutuneet siihen, ja muutoin Euroopan komission hyväksymiin vakiosopimuslausekkeisiin. Lisätietoja siirroista saat osoitteesta <a href="mailto:privacy@makevent.fi">privacy@makevent.fi</a>.</p>
+
+        <h2 id="sailytysajat">6. Säilytysajat</h2>
+
+        <p>Säilytämme tietoja alla kerrotun ajan.</p>
+
+        <ul>
+            <li>– Tili- ja profiilitiedot: kunnes poistat tilisi.</li>
+            <li>– Tapahtumat kuvineen ja lupalomakkeineen: kunnes sinä tai ylläpito poistaa tapahtuman. Menneitä tapahtumia ei poisteta automaattisesti, eivätkä tapahtumat poistu tilin poiston yhteydessä.</li>
+            <li>– Tapahtumaluonnokset: kunnes julkaiset tai poistat luonnoksen tai poistat tilisi.</li>
+            <li>– Tykkäykset, seuraamiset, kaveruudet, kutsut, estot ja mykistykset: kunnes poistat ne itse tai poistat tilisi.</li>
+            <li>– Sovelluksen ilmoitukset: kunnes poistat tilisi tai ilmoitukseen liittyvä tapahtuma tai keskustelu poistetaan. Vanhoja ilmoituksia ei poisteta automaattisesti.</li>
+            <li>– Viestit ja liitteet: niin kauan kuin keskustelu on olemassa. Yksittäistä viestiä ei tällä hetkellä voi poistaa. Viestit poistuvat, kun keskustelu tai siihen liittyvä tapahtuma poistetaan. Keskustelusta poistuminen ei poista lähettämiäsi viestejä. Reaaliaikapalvelin pitää viimeisimpiä viestejä muistissa enintään 24 tuntia niiden toimittamiseksi.</li>
+            <li>– Lataamasi tiedostot (kuvat, videot, liitteet ja profiilikuva): palvelimelle tallennettuja tiedostoja ei tällä hetkellä poisteta automaattisesti silloinkaan, kun viesti, keskustelu, tapahtuma tai tili poistetaan. Poistamme ne pyynnöstä.</li>
+            <li>– Puhelinnumerokutsut: kunnes numerolla rekisteröidytään, tapahtuma poistetaan tai kutsuja poistaa tilinsä.</li>
+            <li>– Ilmoitustunnisteet: kunnes poistat tilisi tai ilmoituspalvelu ilmoittaa tunnisteen vanhentuneen. Kun kirjaudut ulos eikä laitteelle jää muita kirjautuneita tilejä, sovellus mitätöi tunnisteen, ja palvelimemme poistaa sen seuraavan lähetysyrityksen yhteydessä. Jos vaihdat tiliä tai laitteelle jää kirjautuneeksi toinen tili, tunniste siirretään laitteella käytössä olevalle tilille viimeistään, kun sovellus seuraavan kerran käynnistetään.</li>
+            <li>– Salasanan vaihtokoodit (voimassa 30 minuuttia) ja sähköpostiosoitteen vahvistuslinkit (voimassa 24 tuntia) tallennetaan tiivisteinä. Vaihtokoodien tiivisteet poistetaan viimeistään tilin poiston yhteydessä. Vahvistuslinkkien tiivisteitä ei poisteta automaattisesti.</li>
+            <li>– Palaute: palautetta ei poisteta automaattisesti, ja se säilyy myös tilin poiston jälkeen.</li>
+            <li>– Sähköpostit ja yhteydenottolomakkeen viestit: säilyvät postilaatikossamme, kunnes poistamme ne.</li>
+            <li>– Ilmoitukset asiattomasta sisällöstä: tekemäsi ilmoitukset poistetaan, kun poistat tilisi. Sinusta tai viesteistäsi tehdyt ilmoitukset säilyvät.</li>
+            <li>– Käyttötilastot: 24 kuukautta, minkä jälkeen ne poistetaan automaattisesti. Tiliisi liitetyt käyttötapahtumat poistetaan myös, kun poistat tilisi.</li>
+            <li>– Virheraportit: 90 päivää, minkä jälkeen ne poistetaan automaattisesti.</li>
+            <li>– Palvelinlokit: lokit kierrätetään koon mukaan, eli vanhimmat merkinnät poistuvat, kun lokin enimmäiskoko täyttyy. Kiinteää säilytysaikaa ei ole. Nykyisellä käyttömäärällä pyyntölokit kattavat tyypillisesti muutamasta viikosta noin kolmeen kuukauteen. Muihin lokeihin, kuten tietokannan lokiin, kirjautuu paljon vähemmän merkintöjä, joten niissä merkinnät voivat säilyä huomattavasti pidempään.</li>
+            <li>– Ylläpidon toimintaloki: 12 kuukautta, minkä jälkeen se poistetaan automaattisesti.</li>
+            <li>– Varmuuskopiot: varmuuskopio otetaan joka yö. Säilytämme seitsemän päivittäistä ja neljä viikoittaista varmuuskopiota eli noin viiden viikon ajalta. Poistetut tiedot säilyvät varmuuskopioissa tämän ajan, ja varmuuskopioita käytetään vain tietojen palauttamiseen.</li>
+        </ul>
+
+        <h3 id="tilin-poisto">Kun poistat tilisi</h3>
+
+        <p>Välittömästi:</p>
+
+        <ul>
+            <li>– Nimesi korvataan tekstillä "Poistettu käyttäjä", ja käyttäjänimi, sähköpostiosoite, puhelinnumero, ammatti, kaupunki, esittelyteksti, linkit, profiilikuvan liitos tiliin, salasana, Apple- tai Google-kirjautumisen tunniste ja analytiikkasuostumus poistetaan.</li>
+            <li>– Kaveruudet, seuraamiset (myös sinua seuraavat), estot molempiin suuntiin, tykkäykset, ryhmä- ja tapahtumakeskustelujen jäsenyydet, keskustelu- ja tapahtumakutsut, tapahtumaluonnokset, sovelluksen ilmoitukset, tiliisi liitetyt käyttötapahtumat, tekemäsi ilmoitukset asiattomasta sisällöstä, paikkojen estot ja mykistykset, salasanan vaihtokoodit, lähettämäsi puhelinnumerokutsut ja ilmoitustunnisteet poistetaan.</li>
+            <li>– Omistamasi paikat irrotetaan tilistäsi.</li>
+        </ul>
+
+        <p>Säilyvät:</p>
+
+        <ul>
+            <li>– lähettämäsi viestit, joissa lähettäjäksi näkyy "Poistettu käyttäjä", sekä kahdenkeskiset keskustelut toisen osapuolen nähtävinä</li>
+            <li>– luomasi tapahtumat kuvineen ja lupalomakkeineen</li>
+            <li>– lataamasi tiedostot, myös profiilikuvatiedosto. Poistamme ne pyynnöstä.</li>
+            <li>– palaute, sinusta tehdyt ilmoitukset sekä laitekohtaiset käyttötilastot, virheraportit, lokit ja varmuuskopiot edellä kerrotun ajan</li>
+            <li>– anonymisoitu tilitietue: tilin tunniste, luonti- ja poistoaika, kertomasi poiston syy, käyttöehtojen ja tietosuojaselosteen versiot sekä hyväksymis- tai kuittausajat, analytiikkasuostumuksen antamisaika sekä tekniset viittaukset, kuten keskustelun luoja tai paikan työntekijä.</li>
+        </ul>
+
+        <p>Säilytämme viestit ja tapahtumat, koska ne ovat osa muiden käyttäjien keskusteluja ja tapahtumia. Jos haluat jonkin tietyn viestin, tiedoston tai tapahtuman poistettavan, ota yhteyttä osoitteeseen <a href="mailto:privacy@makevent.fi">privacy@makevent.fi</a>.</p>
+
+        <h2 id="oikeutesi">7. Oikeutesi</h2>
+
+        <p>Sinulla on tietosuoja-asetuksen mukaan oikeus:</p>
+
+        <ul>
+            <li>– Saada pääsy tietoihisi (15 art.). Kohdasta Profiili → valikko (kolme pistettä) → Omat tiedot tai tule unohdetuksi → LATAA TIEDOT saat JSON-tiedoston, jossa ovat profiilisi, tykkäykset, seuraamiset, kaveruudet, keskustelujäsenyydet, lähettämiesi viestien tekstit, luomasi tapahtumat ja luonnokset, saamasi ja lähettämäsi kutsut, estot ja mykistykset, omistamasi paikat, tekemäsi ilmoitukset asiattomasta sisällöstä, sovelluksen ilmoitukset ja tiliisi liitetyt käyttötapahtumat. Muut sinua koskevat tiedot, kuten lähettämäsi tiedostot, palautteet, puhelinnumerokutsut ja hyväksymistiedot, saat pyytämällä osoitteesta <a href="mailto:privacy@makevent.fi">privacy@makevent.fi</a>.</li>
+            <li>– Oikaista tietosi (16 art.). Voit muokata profiilia ja tilin tietoja sovelluksessa. Puhelinnumeron poistaminen ja muut korjaukset tehdään pyynnöstä.</li>
+            <li>– Poistaa tietosi (17 art.). Tilin voi poistaa kohdassa Profiili → valikko (kolme pistettä) → Omat tiedot tai tule unohdetuksi → POISTA TILI PYSYVÄSTI. Poisto vahvistetaan salasanalla. Jos olet rekisteröitynyt Applella tai Googlella, tililläsi ei ole salasanaa, eikä poisto tällä hetkellä onnistu sovelluksessa. Lähetä silloin poistopyyntö osoitteeseen <a href="mailto:privacy@makevent.fi">privacy@makevent.fi</a>. Mitä poistetaan ja mitä säilyy, kerrotaan <a href="#sailytysajat">kohdassa 6</a>.</li>
+            <li>– Rajoittaa käsittelyä (18 art.), esimerkiksi silloin, kun kiistät tietojen paikkansapitävyyden.</li>
+            <li>– Siirtää tietosi (20 art.). LATAA TIEDOT -toiminnon JSON-tiedosto on koneluettava.</li>
+            <li>– Vastustaa oikeutettuun etuun perustuvaa käsittelyä (21 art.), kuten laitekohtaisia käyttötilastoja ja virheraportteja. Käyttötilastot voit kytkeä pois sovelluksen asetuksista kohdassa Profiili → valikko (kolme pistettä) → Lähetä anonyymejä käyttötilastoja. Voit myös vastustaa niiden keräämistä lähettämällä sähköpostia osoitteeseen <a href="mailto:privacy@makevent.fi">privacy@makevent.fi</a>. Kun kytket käyttötilastot pois, sovellus lopettaa käyttötapahtumien lähettämisen ja poistaa satunnaisen asennustunnisteen laitteeltasi. Virheraportteja lähetetään edelleen, mutta ilman asennustunnistetta. Niiden käsittelyä voit vastustaa ottamalla meihin yhteyttä.</li>
+            <li>– Perua suostumuksesi. Käyttöanalytiikan voit kytkeä pois kohdassa Profiili → valikko (kolme pistettä) → Käyttöanalytiikka, ja sijainti- ja yhteystietoluvan voit perua laitteen asetuksista.</li>
+            <li>– Tehdä valituksen valvontaviranomaiselle. Suomessa se on tietosuojavaltuutetun toimisto (<a href="https://tietosuoja.fi" target="_blank" rel="noopener noreferrer">tietosuoja.fi</a>).</li>
+        </ul>
+
+        <p>Pyynnöt voit lähettää osoitteeseen <a href="mailto:privacy@makevent.fi">privacy@makevent.fi</a>. Vastaamme kuukauden kuluessa. Voimme pyytää vahvistamaan henkilöllisyytesi, esimerkiksi lähettämään pyynnön tiliisi liitetystä sähköpostiosoitteesta.</p>
+
+        <h2 id="tietoturva">8. Tietoturva</h2>
+
+        <p>Suojaamme tietoja muun muassa seuraavasti:</p>
+
+        <ul>
+            <li>– Sovelluksen ja palvelimen välinen liikenne on salattu (TLS).</li>
+            <li>– Salasanat tallennetaan vain tiivisteinä (bcrypt), ja myös salasanan vaihtokoodit ja vahvistuslinkit tallennetaan tiivisteinä.</li>
+            <li>– Palvelin sijaitsee Suomessa. Tietokanta ja muut sisäiset palvelut eivät ole suoraan internetin kautta saavutettavissa.</li>
+            <li>– Palvelimen hallintaan pääsee vain SSH-avaimella, ja salasanalla kirjautuminen on estetty.</li>
+            <li>– Varmuuskopiot otetaan joka yö salattuina erilliseen tallennuspalveluun Suomessa.</li>
+            <li>– Ylläpidon toimenpiteet kirjataan toimintalokiin.</li>
+            <li>– Käyttötilastoihin ja virheraportteihin ei tallenneta IP-osoitetta sellaisenaan, eikä niihin liitetä nimeäsi tai sähköpostiosoitettasi.</li>
+        </ul>
+
+        <p>Huomaa, että keskusteluihin lähetetyt tiedostot avautuvat kenelle tahansa, jolla on niiden linkki (katso <a href="#tiedot">kohta 2</a>).</p>
+
+        <p>Ilmoitamme tietoturvaloukkauksista tietosuojavaltuutetulle 72 tunnin kuluessa havaitsemisesta silloin, kun laki sitä edellyttää, ja sinulle ilman aiheetonta viivytystä, jos loukkauksesta todennäköisesti aiheutuu sinulle korkea riski.</p>
+
+        <h2 id="muutokset">9. Muutokset tähän selosteeseen</h2>
+
+        <p>Päivitämme selostetta, kun Palvelu tai tietojen käsittely muuttuu. Selosteen alussa on sen versio ja voimaantulopäivä. Ilmoitamme olennaisista muutoksista sovelluksessa tai sähköpostitse. Tämä versio 2.1 korvaa aiemman version 2.0.</p>
+
+        <h2 id="yhteystiedot">10. Yhteystiedot</h2>
+
+        <p>MAKEVENT Oy<br>
+        Y-tunnus: 3626705-7<br>
+        Hämeentie 124, 00560 Helsinki</p>
+
+        <p>Tietosuoja-asiat: <a href="mailto:privacy@makevent.fi">privacy@makevent.fi</a><br>
+        Muut asiat: <a href="mailto:info@makevent.fi">info@makevent.fi</a></p>
+
     </main>
 
     <footer class="w-full bg-[#040306] border-t border-purple-950/10 py-8 px-6">

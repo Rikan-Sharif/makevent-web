@@ -66,7 +66,7 @@
             <h1 class="grad-text text-4xl sm:text-5xl font-extrabold tracking-tight">Sähköposti vahvistettu</h1>
             <p class="text-white/80 text-base max-w-md">Palaa MAKEVENT-sovellukseen jatkaaksesi.</p>
             <a href="makevent://verified"
-                class="rounded-full bg-[#29A52F] px-7 py-3 text-sm font-extrabold tracking-wide">
+                class="app-link rounded-full bg-[#29A52F] px-7 py-3 text-sm font-extrabold tracking-wide">
                 Avaa sovellus
             </a>
         </div>
@@ -81,7 +81,7 @@
                 Jos vahvistit sähköpostisi jo sovelluksessa, kaikki on kunnossa — palaa sovellukseen. Muuten linkki on vanhentunut; avaa sovellus ja lähetä uusi vahvistuslinkki.
             </p>
             <a href="makevent://verified"
-                class="rounded-full bg-[#29A52F] px-7 py-3 text-sm font-extrabold tracking-wide">
+                class="app-link rounded-full bg-[#29A52F] px-7 py-3 text-sm font-extrabold tracking-wide">
                 Avaa sovellus
             </a>
         </div>
@@ -104,6 +104,17 @@
         }
 
         var token = new URLSearchParams(location.search).get('token');
+        // Only a phone or tablet can have the app. On a computer the
+        // makevent:// hand-off has no app to open and the browser shows an
+        // error, so it goes straight to the button (APP-51). iPadOS reports a
+        // Mac, told apart by its touch screen.
+        var onPhone = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) ||
+            (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+        if (!onPhone) {
+            document.querySelectorAll('.app-link').forEach(function (a) {
+                a.classList.add('hidden');
+            });
+        }
 
         if (!token) {
             // No token at all → straight to the error state.
@@ -116,12 +127,16 @@
             // "already used" error. The page never consumes the token itself, so
             // an email-scanner prefetch stays safe. No app picks it up → after a
             // short window we reveal the in-browser button as the fallback.
-            show('opening');
-            window.location.href = 'makevent://verify?token=' + encodeURIComponent(token);
-            setTimeout(function () {
-                // document.hidden → the app took over; leave the browser alone.
-                if (!document.hidden) show('prompt');
-            }, 1800);
+            if (onPhone) {
+                show('opening');
+                window.location.href = 'makevent://verify?token=' + encodeURIComponent(token);
+                setTimeout(function () {
+                    // document.hidden → the app took over; leave the browser alone.
+                    if (!document.hidden) show('prompt');
+                }, 1800);
+            } else {
+                show('prompt');
+            }
             document.getElementById('verifyBtn').addEventListener('click', function () {
                 show('working');
                 fetch(API, {
@@ -136,9 +151,11 @@
                         // browsers, dev builds). Brief delay so the success UI
                         // paints first; the "Avaa sovellus" button is the
                         // manual fallback.
-                        setTimeout(function () {
-                            window.location.href = 'makevent://verified';
-                        }, 600);
+                        if (onPhone) {
+                            setTimeout(function () {
+                                window.location.href = 'makevent://verified';
+                            }, 600);
+                        }
                     } else {
                         show('error');
                     }
